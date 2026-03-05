@@ -7,7 +7,7 @@ const EXPERTS = [
     id: 'yoon',
     name: '윤지연',
     nameEn: 'Jiyeon Yoon',
-    imageUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400&h=400',
+    imageUrl: '/rework/001.jpg',
     title: '데이터와 사람을 잇는 HRD 전문가',
     quote: '"빅데이터로 분석하고, 에듀테크로 설계하며, 코칭으로 변화를 이끌어냅니다."',
     tags: ['#교육컨설턴트', '#피플애널리스트', '#AX_러닝_디자이너', '#퍼실리테이터', '#KPC코치'],
