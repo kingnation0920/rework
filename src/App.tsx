@@ -7,7 +7,7 @@ const EXPERTS = [
     id: 'yoon',
     name: '윤지연',
     nameEn: 'Jiyeon Yoon',
-    imageUrl: '/rework/001.jpg',
+    image: '/001.jpg',
     title: '데이터와 사람을 잇는 HRD 전문가',
     quote: '"빅데이터로 분석하고, 에듀테크로 설계하며, 코칭으로 변화를 이끌어냅니다."',
     tags: ['#교육컨설턴트', '#피플애널리스트', '#AX_러닝_디자이너', '#퍼실리테이터', '#KPC코치'],
@@ -24,7 +24,7 @@ const EXPERTS = [
     id: 'kim',
     name: '김기현',
     nameEn: 'Kihyun Kim',
-    imageUrl: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400&h=400',
+    image: '/002.jpg',
     title: '데이터로 진단하고, AI로 설계하며, 교육으로 성과를 만듭니다.',
     quote: '"실전 M&A 경험과 AI 기술을 잇는 비즈니스 전략 파트너"',
     tags: ['#AI교육', '#빅데이터', '#창업교육', '#경영전략', '#마케팅', '#기획력향상', '#평가위원'],
@@ -41,7 +41,7 @@ const EXPERTS = [
     id: 'lee',
     name: '이창현',
     nameEn: 'ChangHyun Lee',
-    imageUrl: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400&h=400',
+    image: '/003.jpg',
     title: '데이터를 가치로 변환합니다.',
     quote: '"문제를 정의하고, 데이터로 그 문제를 해결합니다."',
     tags: ['#디지털트랜스포메이션', '#데이터기반의사결정', '#데이터기반신사업개발'],
@@ -57,7 +57,7 @@ const EXPERTS = [
     id: 'nam',
     name: '남미진',
     nameEn: 'Mijin Nam',
-    imageUrl: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400&h=400',
+    image: '/004.jpg',
     title: '개인과 조직의 잠재력을 ON하는 코칭전문가',
     quote: '"사람과 사람, 사람과 조직, 현재와 미래를 연결하여 지속 가능한 성장을 설계합니다."',
     tags: ['#전문코치', '#코칭', '#리더십', '#소통', '#갈등관리', '#마음챙김'],
@@ -75,7 +75,7 @@ const EXPERTS = [
     id: 'jung',
     name: '정상은',
     nameEn: 'Sangeun Jung',
-    imageUrl: 'https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&q=80&w=400&h=400',
+    image: '/005.jpg',
     title: '개인과 조직의 성장을 돕는 HRD전문가',
     quote: '"Crafting Growth Finding ME"',
     tags: ['#조직개발', '#리더십', '#커뮤니케이션', '#커리어개발', '#성격검사', '#코칭'],
@@ -312,7 +312,7 @@ export default function App() {
               <div className="flex items-start justify-between mb-6">
                 <div className="flex items-center gap-4">
                   <img 
-                    src={expert.imageUrl} 
+                    src={expert.image} 
                     alt={expert.name} 
                     className="w-16 h-16 rounded-full object-cover border-2 border-blue-50"
                     referrerPolicy="no-referrer"
@@ -409,7 +409,7 @@ export default function App() {
               <div className="sticky top-0 bg-white/80 backdrop-blur-md border-b border-gray-100 p-6 flex justify-between items-center z-10 shrink-0">
                 <div className="flex items-center gap-4">
                   <img 
-                    src={selectedExpert.imageUrl} 
+                    src={selectedExpert.image} 
                     alt={selectedExpert.name} 
                     className="w-16 h-16 rounded-full object-cover border-2 border-gray-100"
                     referrerPolicy="no-referrer"
