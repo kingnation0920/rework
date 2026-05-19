@@ -230,6 +230,17 @@ const PROGRAMS = [
   }
 ];
 
+const PROGRAM_SLUGS: Record<string, string> = {
+  p1: 'ax-data-driven-design-thinking',
+  p2: 'ai-job-crafting-workshop',
+  p3: 'human-llm-agent-collaboration',
+  p4: 'pbl-ax-project',
+  p5: 'hr-ai-culture-deck',
+  p6: 'desire-prism-culture',
+  p7: 'generative-ai-automation',
+  p8: 'ai-connected-coaching'
+};
+
 const SERVICES = [
   {
     title: 'AI 업무혁신 교육',
@@ -280,6 +291,14 @@ const ROUTE_META: Record<string, { title: string; description: string }> = {
     description: '잡 크래프팅, 조직문화, AX 전환, 리더십에 관한 실무 가이드와 사례 연구를 제공할 랩리워크 블로그 허브입니다. 콘텐츠는 준비 중입니다.'
   }
 };
+
+for (const program of PROGRAMS) {
+  const slug = PROGRAM_SLUGS[program.id];
+  ROUTE_META[`/programs/${slug}`] = {
+    title: `${program.title} | 랩리워크 프로그램`,
+    description: `${program.title} 프로그램의 교육 대상, 교육 시간, 교육 목표, 차별화 포인트를 확인하세요.`
+  };
+}
 
 const SERVICE_PAGE_CONTENT: Record<string, { eyebrow: string; heading: string; summary: string; tags: string[] }> = {
   '/service/job-crafting': {
@@ -371,6 +390,15 @@ function getServicePrograms(programIds: string[]) {
     .filter((program): program is typeof PROGRAMS[number] => Boolean(program));
 }
 
+function getProgramHref(programId: string) {
+  return `/programs/${PROGRAM_SLUGS[programId]}`;
+}
+
+function getProgramByPath(path: string) {
+  const slug = path.replace('/programs/', '');
+  return PROGRAMS.find(program => PROGRAM_SLUGS[program.id] === slug);
+}
+
 function ProgramModuleList({ programIds }: { programIds: string[] }) {
   const programs = getServicePrograms(programIds);
 
@@ -379,13 +407,13 @@ function ProgramModuleList({ programIds }: { programIds: string[] }) {
       <p className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-3">관련 프로그램 모듈</p>
       <div className="space-y-3">
         {programs.map(program => (
-          <div key={program.id} className="flex gap-3 rounded-2xl bg-gray-50 border border-gray-100 p-4">
+          <a key={program.id} href={getProgramHref(program.id)} className="flex gap-3 rounded-2xl bg-gray-50 border border-gray-100 p-4 hover:border-blue-200 hover:bg-blue-50/60 transition-colors">
             <span className="font-mono font-bold text-blue-600 shrink-0">{program.number}</span>
             <div>
               <p className="font-bold text-gray-900 leading-snug">{program.title}</p>
               <p className="mt-1 text-sm text-gray-500">{program.duration}</p>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </div>
@@ -479,23 +507,21 @@ function ServicesPage() {
           <p className="text-blue-600 font-semibold mb-4 tracking-wider text-sm uppercase">Services</p>
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900">서비스 소개</h1>
           <p className="mt-6 text-xl text-gray-600 max-w-3xl leading-relaxed">
-            PDF 3-3~3-5 전략에 맞춰 서비스 허브와 개별 서비스 페이지를 먼저 열어두었습니다.
+            3개 서비스 패키지는 8개 프로그램 모듈을 조직 상황에 맞게 조합해 제공합니다.
           </p>
 
           <div className="mt-12 grid md:grid-cols-3 gap-8">
             {SERVICES.map(service => (
-              <a key={service.href} href={service.href} className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-blue-100 transition-all duration-300">
+              <article key={service.href} className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-blue-100 transition-all duration-300">
                 <h2 className="text-2xl font-bold text-gray-900">{service.title}</h2>
                 <p className="mt-4 text-gray-600 leading-relaxed">{service.description}</p>
                 <ProgramModuleList programIds={service.programIds} />
-                <span className="mt-6 inline-flex items-center gap-2 text-blue-600 font-bold">
+                <a href={service.href} className="mt-6 inline-flex items-center gap-2 text-blue-600 font-bold">
                   상세 페이지 보기 <ArrowRight size={18} />
-                </span>
-              </a>
+                </a>
+              </article>
             ))}
           </div>
-
-          <PendingNotice label="서비스 소개 본문" />
         </div>
       </section>
     </PageShell>
@@ -521,10 +547,97 @@ function ServiceDetailPage({ path }: { path: string }) {
             ))}
           </div>
           {service && <ProgramModuleList programIds={service.programIds} />}
-          <PendingNotice label={`${content.heading} 상세 콘텐츠`} />
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
             <a href="/services" className="inline-flex items-center justify-center gap-2 bg-white text-blue-700 px-6 py-3 rounded-full font-bold border border-blue-100 hover:bg-blue-50 transition-colors">
               서비스 목록으로
+            </a>
+            <a href={`mailto:${CONTACT_EMAIL}`} className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-full font-bold hover:bg-blue-700 transition-colors">
+              <Mail size={18} />
+              상담 문의
+            </a>
+          </div>
+        </div>
+      </section>
+    </PageShell>
+  );
+}
+
+function ProgramDetailPage({ path }: { path: string }) {
+  const program = getProgramByPath(path);
+
+  if (!program) return <NotFoundPage />;
+
+  return (
+    <PageShell>
+      <section className="pt-36 pb-20 px-6">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-blue-600 font-semibold mb-4 tracking-wider text-sm uppercase">Program {program.number}</p>
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900 leading-tight">{program.title}</h1>
+
+          <div className="mt-10 grid sm:grid-cols-2 gap-6 bg-white p-6 rounded-3xl border border-gray-100 shadow-sm">
+            <div>
+              <h2 className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2 flex items-center">
+                <Users size={16} className="mr-2" /> 교육 대상
+              </h2>
+              <p className="text-gray-900 font-medium leading-relaxed">{program.target}</p>
+            </div>
+            <div>
+              <h2 className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2 flex items-center">
+                <BookOpen size={16} className="mr-2" /> 교육 시간
+              </h2>
+              <p className="text-gray-900 font-medium">{program.duration}</p>
+            </div>
+          </div>
+
+          <div className="mt-12">
+            <h2 className="flex items-center text-2xl font-bold mb-6 text-gray-900">
+              <Target className="mr-2 text-blue-600" size={24} />
+              교육 목표
+            </h2>
+            <ul className="space-y-4">
+              {program.objectives.map((objective, index) => (
+                <li key={objective} className="flex items-start bg-white border border-gray-100 rounded-2xl p-5">
+                  <div className="w-7 h-7 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0 mt-0.5 mr-4 text-sm font-bold">
+                    {index + 1}
+                  </div>
+                  <p className="text-gray-700 leading-relaxed">{objective}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="mt-12">
+            <h2 className="flex items-center text-2xl font-bold mb-6 text-gray-900">
+              <Lightbulb className="mr-2 text-blue-600" size={24} />
+              차별화 포인트 & 기대효과
+            </h2>
+            <div className="grid gap-4">
+              {program.points.map(point => {
+                const parts = point.split(': ');
+                const hasTitle = parts.length > 1 && parts[0].length < 40;
+
+                return (
+                  <div key={point} className="bg-white border border-gray-100 p-5 rounded-2xl shadow-sm">
+                    {hasTitle ? (
+                      <>
+                        <h3 className="font-bold text-gray-900 mb-2 text-lg">{parts[0]}</h3>
+                        <p className="text-gray-600 leading-relaxed">{parts.slice(1).join(': ')}</p>
+                      </>
+                    ) : (
+                      <p className="text-gray-600 leading-relaxed">{point}</p>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="mt-12 flex flex-col sm:flex-row gap-4">
+            <a href="/services" className="inline-flex items-center justify-center gap-2 bg-white text-blue-700 px-6 py-3 rounded-full font-bold border border-blue-100 hover:bg-blue-50 transition-colors">
+              서비스 목록으로
+            </a>
+            <a href="/#programs" className="inline-flex items-center justify-center gap-2 bg-white text-blue-700 px-6 py-3 rounded-full font-bold border border-blue-100 hover:bg-blue-50 transition-colors">
+              전체 프로그램 보기
             </a>
             <a href={`mailto:${CONTACT_EMAIL}`} className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-full font-bold hover:bg-blue-700 transition-colors">
               <Mail size={18} />
@@ -588,6 +701,7 @@ export default function App() {
   if (path === '/services') return <ServicesPage />;
   if (path === '/blog') return <BlogPage />;
   if (path.startsWith('/service/')) return <ServiceDetailPage path={path} />;
+  if (path.startsWith('/programs/')) return <ProgramDetailPage path={path} />;
   if (path !== '/') return <NotFoundPage />;
 
   return (
@@ -658,9 +772,8 @@ export default function App() {
 
         <div className="grid md:grid-cols-3 gap-8">
           {SERVICES.map((service, idx) => (
-            <motion.a
+            <motion.article
               key={service.title}
-              href={service.href}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -678,7 +791,10 @@ export default function App() {
                   </span>
                 ))}
               </div>
-            </motion.a>
+              <a href={service.href} className="mt-6 inline-flex items-center gap-2 text-blue-600 font-bold">
+                상세 페이지 보기 <ArrowRight size={18} />
+              </a>
+            </motion.article>
           ))}
         </div>
       </section>
@@ -747,19 +863,19 @@ export default function App() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {PROGRAMS.map((program, idx) => (
-              <motion.div 
+              <motion.a
                 key={program.id}
+                href={getProgramHref(program.id)}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05 }}
-                className="bg-gray-800 p-8 rounded-3xl border border-gray-700 hover:bg-gray-750 hover:border-blue-500/50 transition-all duration-300 cursor-pointer group flex flex-col h-full"
-                onClick={() => setSelectedProgram(program)}
+                className="bg-gray-800 p-8 rounded-3xl border border-gray-700 hover:bg-gray-750 hover:border-blue-500/50 transition-all duration-300 group flex flex-col h-full"
               >
                 <span className="text-blue-400 font-mono font-bold text-xl mb-4 block">{program.number}</span>
                 <h4 className="font-bold text-lg mb-4 leading-snug group-hover:text-blue-400 transition-colors">{program.title}</h4>
                 <p className="text-sm text-gray-400 line-clamp-3 mt-auto">{program.objectives[0]}</p>
-              </motion.div>
+              </motion.a>
             ))}
           </div>
         </div>
