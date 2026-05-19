@@ -1,20 +1,31 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Lab Re:work Website
 
-# Run and deploy your AI Studio app
+랩리워크 공식 웹사이트입니다. Vite, React, Tailwind CSS 기반으로 제작되었으며 AI 기반 HRD 교육, 조직문화 진단, 잡 크래프팅, AX 전환 교육 서비스를 소개합니다.
 
-This contains everything you need to run your app locally.
+## 주요 SEO/GEO 설정
 
-View your app in AI Studio: https://ai.studio/apps/9cfef238-e8d2-474e-b914-52d0b344957e
+- 홈 메타 타이틀/디스크립션/키워드 설정
+- Open Graph 및 Twitter Card 설정
+- Canonical URL 설정
+- Organization/ProfessionalService JSON-LD 적용
+- FAQPage JSON-LD 적용
+- `robots.txt` 및 `sitemap.xml` 추가
+- 서비스, 실적, FAQ, CTA 섹션 구성
 
-## Run Locally
+## 로컬 실행
 
-**Prerequisites:**  Node.js
+```bash
+npm install
+npm run dev
+```
 
+## 빌드 확인
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+```bash
+npm run lint
+npm run build
+```
+
+## 배포
+
+Vercel 또는 정적 호스팅에서 배포할 수 있습니다. 기본 빌드 명령은 `npm run build`, 출력 폴더는 `dist`입니다.
