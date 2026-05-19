@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import { Menu, X, ChevronRight, Mail, Phone, BookOpen, Users, Target, Lightbulb, Briefcase, Award, ArrowRight } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Menu, X, Mail, BookOpen, Users, Target, Lightbulb, Briefcase, Award, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+
+const CONTACT_EMAIL = 'lab.rework26@gmail.com';
 
 const EXPERTS = [
   {
@@ -11,7 +13,7 @@ const EXPERTS = [
     title: '데이터와 사람을 잇는 HRD 전문가',
     quote: '"빅데이터로 분석하고, 에듀테크로 설계하며, 코칭으로 변화를 이끌어냅니다."',
     tags: ['#교육컨설턴트', '#피플애널리스트', '#AX_러닝_디자이너', '#퍼실리테이터', '#KPC코치'],
-    email: 'Jena_Yoon@naver.com',
+    email: CONTACT_EMAIL,
     summary: '교육공학 석사와 빅데이터(비즈니스인포매틱스) 박사 과정을 통해 인적자원개발(HRD)과 데이터 과학의 융합을 실현하는 전문가입니다. 삼성인력개발원, 웅진씽크빅 등 선도 기업의 데이터 기반 교육 과정 설계 및 자문을 수행했으며, 현재는 생성형 AI와 빅데이터를 활용한 성과 창출형 교육 솔루션을 제공하고 있습니다. 정량적 데이터 분석 역량(파이썬 프로그래밍을 통한 빅데이터 분석, LDA, 텍스트마이닝)과 정성적 코칭/퍼실리테이션 역량(KPC)을 겸비하여 조직의 실질적인 변화를 지원합니다.',
     competencies: [
       'People Analytics: 텍스트 마이닝(LDA) 등을 활용한 조직 진단 및 직원 경험(EX) 설계',
@@ -228,51 +230,336 @@ const PROGRAMS = [
   }
 ];
 
+const SERVICES = [
+  {
+    title: 'AI HRD 교육',
+    href: '/service/org-training',
+    description: '생성형 AI와 데이터 분석 도구를 실제 업무 맥락에 맞게 익히고, 구성원이 AI를 성과 창출 도구로 활용하도록 돕습니다.',
+    keywords: ['생성형 AI 교육', 'AI 리터러시', '업무 자동화']
+  },
+  {
+    title: '잡 크래프팅 워크숍',
+    href: '/service/job-crafting',
+    description: '구성원이 과업, 관계, 인식을 주도적으로 재설계하여 직무 몰입도와 일의 의미를 회복하도록 설계합니다.',
+    keywords: ['잡 크래프팅', '직무 재설계', '직원 몰입도']
+  },
+  {
+    title: 'AX 전환 교육',
+    href: '/service/ax-transformation',
+    description: 'AI 도입 과정에서 생기는 불안과 저항을 낮추고, 조직문화 변화관리와 리더십 실행 전략을 함께 다룹니다.',
+    keywords: ['AX 전환', '조직문화 변화관리', 'AI 도입 교육']
+  }
+];
+
+const ROUTE_META: Record<string, { title: string; description: string }> = {
+  '/': {
+    title: '랩리워크 | AI 기반 HRD 교육 전문가 그룹',
+    description: '랩리워크는 생성형 AI, HRD 교육, 조직문화 진단, 잡 크래프팅, AX 전환 교육을 통해 구성원의 일하는 방식을 재설계하는 AI 기반 HRD 교육 전문가 그룹입니다.'
+  },
+  '/services': {
+    title: '서비스 소개 | AI HRD 교육 · 잡 크래프팅 · AX 전환 - 랩리워크',
+    description: '랩리워크의 AI HRD 교육, 잡 크래프팅 워크숍, AX 전환 교육 서비스를 소개합니다. 상세 콘텐츠는 준비 중입니다.'
+  },
+  '/service/job-crafting': {
+    title: '잡 크래프팅 컨설팅 | 구성원 몰입도와 직무 만족도를 높이는 방법 - 랩리워크',
+    description: '잡 크래프팅이란 구성원 스스로 업무를 재설계하여 몰입도를 높이는 조직 개발 기법입니다. 랩리워크의 잡 크래프팅 워크숍 상세 소개는 준비 중입니다.'
+  },
+  '/service/org-training': {
+    title: 'AI HRD 조직 교육 | 생성형 AI와 데이터 기반 교육 프로그램 - 랩리워크',
+    description: '랩리워크는 생성형 AI, 데이터 분석, 리더십, 조직문화 교육을 결합한 AI 기반 HRD 조직 교육을 제공합니다. 상세 소개는 준비 중입니다.'
+  },
+  '/service/ax-transformation': {
+    title: 'AX 전환 교육 | AI 도입 시 조직문화 변화관리 전략 - 랩리워크',
+    description: 'AI 전환 과정에서 발생하는 구성원 저항, 심리적 불안, 조직 갈등을 관리하는 랩리워크의 AX 전환 교육 상세 소개는 준비 중입니다.'
+  },
+  '/blog': {
+    title: '조직문화 인사이트 | 랩리워크 블로그',
+    description: '잡 크래프팅, 조직문화, AX 전환, 리더십에 관한 실무 가이드와 사례 연구를 제공할 랩리워크 블로그 허브입니다. 콘텐츠는 준비 중입니다.'
+  }
+};
+
+const SERVICE_PAGE_CONTENT: Record<string, { eyebrow: string; heading: string; summary: string; tags: string[] }> = {
+  '/service/job-crafting': {
+    eyebrow: 'Job Crafting',
+    heading: '잡 크래프팅 컨설팅',
+    summary: '구성원이 자신의 과업, 관계, 직무 인식을 주도적으로 재설계해 일의 의미와 몰입도를 높이는 조직개발 프로그램입니다.',
+    tags: ['잡 크래프팅', '직무 재설계', '직원 몰입도', '번아웃 예방']
+  },
+  '/service/org-training': {
+    eyebrow: 'AI HRD Training',
+    heading: 'AI HRD 조직 교육',
+    summary: '생성형 AI와 데이터 기반 도구를 조직의 실제 업무에 연결해 구성원의 AI 활용 역량과 HRD 실행력을 높입니다.',
+    tags: ['AI HRD 교육', '생성형 AI 교육', '리더십 교육', '조직 교육']
+  },
+  '/service/ax-transformation': {
+    eyebrow: 'AX Transformation',
+    heading: 'AX 전환 교육',
+    summary: 'AI 도입 과정에서 생기는 불안, 저항, 협업 방식의 변화를 교육과 변화관리 관점에서 다루는 프로그램입니다.',
+    tags: ['AX 전환', 'AI 도입', '변화관리', '조직문화']
+  }
+};
+
+const FAQS = [
+  {
+    question: '랩리워크는 어떤 회사인가요?',
+    answer: '랩리워크는 생성형 AI, 데이터 분석, 조직문화 진단, 잡 크래프팅, AX 전환 교육을 결합해 구성원의 일하는 방식을 재설계하는 AI 기반 HRD 교육 전문가 그룹입니다.'
+  },
+  {
+    question: '잡 크래프팅이란 무엇인가요?',
+    answer: '잡 크래프팅은 구성원이 자신의 업무 범위, 동료와의 관계, 직무에 대한 인식을 주도적으로 재설계해 직무 만족도와 몰입도를 높이는 조직개발 접근법입니다.'
+  },
+  {
+    question: 'AX 전환 교육은 DX 교육과 무엇이 다른가요?',
+    answer: 'DX가 업무 프로세스의 디지털화에 초점을 둔다면, AX는 AI를 의사결정과 업무 실행에 통합하는 변화입니다. 랩리워크는 기술 활용법뿐 아니라 구성원의 심리적 안전감과 조직문화 변화관리까지 함께 다룹니다.'
+  },
+  {
+    question: '상담은 어떻게 신청하나요?',
+    answer: `현재는 이메일 ${CONTACT_EMAIL}로 문의를 받고 있습니다. 조직 상황, 교육 대상, 희망 일정, 관심 프로그램을 보내주시면 맞춤형으로 안내드립니다.`
+  }
+];
+
+function getCurrentPath() {
+  const path = window.location.pathname.replace(/\/+$/, '');
+  return path || '/';
+}
+
+function setMeta(name: string, content: string) {
+  let tag = document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`);
+  if (!tag) {
+    tag = document.createElement('meta');
+    tag.setAttribute('name', name);
+    document.head.appendChild(tag);
+  }
+  tag.setAttribute('content', content);
+}
+
+function setPropertyMeta(property: string, content: string) {
+  const tag = document.querySelector<HTMLMetaElement>(`meta[property="${property}"]`);
+  if (tag) tag.setAttribute('content', content);
+}
+
+function setCanonical(path: string) {
+  let link = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+  if (!link) {
+    link = document.createElement('link');
+    link.setAttribute('rel', 'canonical');
+    document.head.appendChild(link);
+  }
+  link.setAttribute('href', `https://www.labrework.com${path === '/' ? '/' : path}`);
+}
+
+function usePageMeta(path: string) {
+  useEffect(() => {
+    const meta = ROUTE_META[path] || ROUTE_META['/'];
+    document.title = meta.title;
+    setMeta('description', meta.description);
+    setPropertyMeta('og:title', meta.title);
+    setPropertyMeta('og:description', meta.description);
+    setPropertyMeta('og:url', `https://www.labrework.com${path === '/' ? '/' : path}`);
+    setMeta('twitter:title', meta.title);
+    setMeta('twitter:description', meta.description);
+    setCanonical(path);
+  }, [path]);
+}
+
+function SiteNav({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean; setIsMenuOpen: (open: boolean) => void }) {
+  const closeMenu = () => setIsMenuOpen(false);
+
+  return (
+    <nav className="fixed w-full bg-white/90 backdrop-blur-md z-40 shadow-sm">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="/" className="text-2xl font-bold text-blue-600 tracking-tight">Lab Re:work</a>
+
+        <div className="hidden md:flex space-x-8 font-medium text-gray-600">
+          <a href="/" className="hover:text-blue-600 transition">홈</a>
+          <a href="/services" className="hover:text-blue-600 transition">서비스</a>
+          <a href="/blog" className="hover:text-blue-600 transition">블로그</a>
+          <a href="/#experts" className="hover:text-blue-600 transition">전문가</a>
+          <a href="/#programs" className="hover:text-blue-600 transition">프로그램</a>
+          <a href="/#contact" className="hover:text-blue-600 transition">문의</a>
+        </div>
+
+        <button className="md:hidden p-2 text-gray-600" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="메뉴 열기">
+          {isMenuOpen ? <X /> : <Menu />}
+        </button>
+      </div>
+
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-white border-t overflow-hidden"
+          >
+            <div className="flex flex-col px-6 py-4 space-y-4 font-medium text-gray-600">
+              <a href="/" onClick={closeMenu}>홈</a>
+              <a href="/services" onClick={closeMenu}>서비스</a>
+              <a href="/blog" onClick={closeMenu}>블로그</a>
+              <a href="/#experts" onClick={closeMenu}>전문가</a>
+              <a href="/#programs" onClick={closeMenu}>프로그램</a>
+              <a href="/#contact" onClick={closeMenu}>문의</a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
+  );
+}
+
+function PendingNotice({ label = '콘텐츠' }: { label?: string }) {
+  return (
+    <div className="mt-10 rounded-3xl border border-dashed border-blue-200 bg-blue-50/70 px-8 py-12 text-center">
+      <p className="text-sm font-bold uppercase tracking-wider text-blue-600">{label}</p>
+      <p className="mt-3 text-3xl font-extrabold text-gray-900">준비 중 입니다.</p>
+      <p className="mt-4 text-gray-600">곧 상세 콘텐츠를 채워 넣을 예정입니다.</p>
+    </div>
+  );
+}
+
+function PageShell({ children }: { children: React.ReactNode }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  return (
+    <div className="bg-gray-50 text-gray-900 font-sans min-h-screen selection:bg-blue-200">
+      <SiteNav isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+      <main>{children}</main>
+      <footer id="contact" className="py-20 bg-white text-center px-6 border-t border-gray-100">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">AI 기반 HRD 교육이 필요하다면</h2>
+        <p className="mb-10 text-gray-500 max-w-2xl mx-auto text-lg">
+          조직 상황, 교육 대상, 희망 일정, 관심 프로그램을 보내주시면 랩리워크가 맞춤형으로 안내드립니다.
+        </p>
+        <a
+          href={`mailto:${CONTACT_EMAIL}`}
+          className="inline-flex items-center justify-center space-x-2 bg-blue-600 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/20"
+        >
+          <Mail size={20} />
+          <span>문의하기: {CONTACT_EMAIL}</span>
+        </a>
+      </footer>
+    </div>
+  );
+}
+
+function ServicesPage() {
+  return (
+    <PageShell>
+      <section className="pt-36 pb-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <p className="text-blue-600 font-semibold mb-4 tracking-wider text-sm uppercase">Services</p>
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900">서비스 소개</h1>
+          <p className="mt-6 text-xl text-gray-600 max-w-3xl leading-relaxed">
+            PDF 3-3~3-5 전략에 맞춰 서비스 허브와 개별 서비스 페이지를 먼저 열어두었습니다.
+          </p>
+
+          <div className="mt-12 grid md:grid-cols-3 gap-8">
+            {SERVICES.map(service => (
+              <a key={service.href} href={service.href} className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-blue-100 transition-all duration-300">
+                <h2 className="text-2xl font-bold text-gray-900">{service.title}</h2>
+                <p className="mt-4 text-gray-600 leading-relaxed">{service.description}</p>
+                <span className="mt-6 inline-flex items-center gap-2 text-blue-600 font-bold">
+                  상세 페이지 보기 <ArrowRight size={18} />
+                </span>
+              </a>
+            ))}
+          </div>
+
+          <PendingNotice label="서비스 소개 본문" />
+        </div>
+      </section>
+    </PageShell>
+  );
+}
+
+function ServiceDetailPage({ path }: { path: string }) {
+  const content = SERVICE_PAGE_CONTENT[path];
+
+  if (!content) return <NotFoundPage />;
+
+  return (
+    <PageShell>
+      <section className="pt-36 pb-20 px-6">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-blue-600 font-semibold mb-4 tracking-wider text-sm uppercase">{content.eyebrow}</p>
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900">{content.heading}</h1>
+          <p className="mt-6 text-xl text-gray-600 leading-relaxed">{content.summary}</p>
+          <div className="mt-8 flex flex-wrap gap-2">
+            {content.tags.map(tag => (
+              <span key={tag} className="text-sm font-medium bg-blue-50 text-blue-700 px-4 py-2 rounded-full">{tag}</span>
+            ))}
+          </div>
+          <PendingNotice label={`${content.heading} 상세 콘텐츠`} />
+          <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            <a href="/services" className="inline-flex items-center justify-center gap-2 bg-white text-blue-700 px-6 py-3 rounded-full font-bold border border-blue-100 hover:bg-blue-50 transition-colors">
+              서비스 목록으로
+            </a>
+            <a href={`mailto:${CONTACT_EMAIL}`} className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-full font-bold hover:bg-blue-700 transition-colors">
+              <Mail size={18} />
+              상담 문의
+            </a>
+          </div>
+        </div>
+      </section>
+    </PageShell>
+  );
+}
+
+function BlogPage() {
+  const categories = ['잡 크래프팅', '조직문화', 'AX 전환', '리더십', 'HR 인사이트'];
+
+  return (
+    <PageShell>
+      <section className="pt-36 pb-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <p className="text-blue-600 font-semibold mb-4 tracking-wider text-sm uppercase">Blog</p>
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900">조직문화 인사이트</h1>
+          <p className="mt-6 text-xl text-gray-600 max-w-3xl leading-relaxed">
+            잡 크래프팅, 조직문화, AX 전환, 리더십에 관한 실무 가이드와 사례 연구를 담을 블로그 허브입니다.
+          </p>
+          <div className="mt-10 flex flex-wrap gap-3">
+            {categories.map(category => (
+              <span key={category} className="bg-white border border-gray-100 text-gray-700 px-4 py-2 rounded-full font-medium">
+                {category}
+              </span>
+            ))}
+          </div>
+          <PendingNotice label="블로그 콘텐츠" />
+        </div>
+      </section>
+    </PageShell>
+  );
+}
+
+function NotFoundPage() {
+  return (
+    <PageShell>
+      <section className="pt-36 pb-24 px-6 text-center">
+        <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900">페이지를 찾을 수 없습니다</h1>
+        <p className="mt-6 text-xl text-gray-600">요청하신 주소가 아직 준비되지 않았습니다.</p>
+        <a href="/" className="mt-10 inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-700 transition-colors">
+          홈으로 돌아가기
+        </a>
+      </section>
+    </PageShell>
+  );
+}
+
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedExpert, setSelectedExpert] = useState<typeof EXPERTS[0] | null>(null);
   const [selectedProgram, setSelectedProgram] = useState<typeof PROGRAMS[0] | null>(null);
+  const path = getCurrentPath();
+
+  usePageMeta(path);
+
+  if (path === '/services') return <ServicesPage />;
+  if (path === '/blog') return <BlogPage />;
+  if (path.startsWith('/service/')) return <ServiceDetailPage path={path} />;
+  if (path !== '/') return <NotFoundPage />;
 
   return (
     <div className="bg-gray-50 text-gray-900 font-sans min-h-screen selection:bg-blue-200">
-      {/* Navbar */}
-      <nav className="fixed w-full bg-white/90 backdrop-blur-md z-40 shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="text-2xl font-bold text-blue-600 tracking-tight">Lab Re:work</div>
-          
-          {/* Desktop Nav */}
-          <div className="hidden md:flex space-x-8 font-medium text-gray-600">
-            <a href="#about" className="hover:text-blue-600 transition">소개</a>
-            <a href="#experts" className="hover:text-blue-600 transition">전문가</a>
-            <a href="#programs" className="hover:text-blue-600 transition">프로그램</a>
-            <a href="#contact" className="hover:text-blue-600 transition">문의</a>
-          </div>
-
-          {/* Mobile Menu Toggle */}
-          <button className="md:hidden p-2 text-gray-600" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X /> : <Menu />}
-          </button>
-        </div>
-        
-        {/* Mobile Nav */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div 
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-white border-t overflow-hidden"
-            >
-              <div className="flex flex-col px-6 py-4 space-y-4 font-medium text-gray-600">
-                <a href="#about" onClick={() => setIsMenuOpen(false)}>소개</a>
-                <a href="#experts" onClick={() => setIsMenuOpen(false)}>전문가</a>
-                <a href="#programs" onClick={() => setIsMenuOpen(false)}>프로그램</a>
-                <a href="#contact" onClick={() => setIsMenuOpen(false)}>문의</a>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </nav>
+      <SiteNav isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 
       {/* Hero Section */}
       <header id="about" className="pt-40 pb-24 px-6 text-center bg-gradient-to-b from-white to-gray-50">
@@ -281,15 +568,86 @@ export default function App() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-blue-600 font-semibold mb-4 tracking-wider text-sm md:text-base uppercase">Re:work, Real Work</h2>
+          <h2 className="text-blue-600 font-semibold mb-4 tracking-wider text-sm md:text-base uppercase">AI-Powered HRD Expert Group</h2>
           <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight text-gray-900">
-            일을 다시 <span className="text-blue-600">정의하다</span>
+            AI 기반 HRD 교육으로<br className="hidden md:block" />
+            <span className="text-blue-600">일하는 방식을 재설계합니다</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
-            데이터로 진단하고, AI로 설계하며,<br className="hidden md:block" /> 교육으로 실질적인 성과를 만듭니다.
+            랩리워크는 생성형 AI, 조직문화 진단, 잡 크래프팅, AX 전환 교육을 통해
+            구성원의 몰입과 조직 성과를 함께 높입니다.
           </p>
+          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/20"
+            >
+              <Mail size={20} />
+              무료 상담 신청하기
+            </a>
+            <a
+              href="/services"
+              className="inline-flex items-center justify-center gap-2 bg-white text-blue-700 px-8 py-4 rounded-full font-bold border border-blue-100 hover:border-blue-300 hover:bg-blue-50 transition-colors"
+            >
+              서비스 살펴보기
+              <ArrowRight size={18} />
+            </a>
+          </div>
         </motion.div>
       </header>
+
+      {/* Proof Section */}
+      <section className="bg-white border-y border-gray-100 px-6 py-10">
+        <div className="max-w-5xl mx-auto grid sm:grid-cols-3 gap-6 text-center">
+          <div>
+            <p className="text-4xl font-extrabold text-blue-600">20+</p>
+            <p className="mt-2 text-gray-600 font-medium">기업 협력</p>
+          </div>
+          <div>
+            <p className="text-4xl font-extrabold text-blue-600">200+</p>
+            <p className="mt-2 text-gray-600 font-medium">교육·컨설팅 프로젝트</p>
+          </div>
+          <div>
+            <p className="text-4xl font-extrabold text-blue-600">AI HRD</p>
+            <p className="mt-2 text-gray-600 font-medium">교육·조직개발 전문성</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="py-24 max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">AI 기반 HRD 교육 서비스</h2>
+          <p className="text-gray-500 max-w-2xl mx-auto">
+            기술 도입 교육에 머무르지 않고, 구성원이 실제 업무와 조직문화 안에서 AI를 활용하도록 설계합니다.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {SERVICES.map((service, idx) => (
+            <motion.a
+              key={service.title}
+              href={service.href}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.08 }}
+              className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-blue-100 transition-all duration-300"
+            >
+              <span className="text-blue-600 font-mono font-bold">0{idx + 1}</span>
+              <h3 className="mt-4 text-2xl font-bold text-gray-900">{service.title}</h3>
+              <p className="mt-4 text-gray-600 leading-relaxed">{service.description}</p>
+              <div className="mt-6 flex flex-wrap gap-2">
+                {service.keywords.map(keyword => (
+                  <span key={keyword} className="text-xs font-medium bg-blue-50 text-blue-700 px-3 py-1 rounded-full">
+                    {keyword}
+                  </span>
+                ))}
+              </div>
+            </motion.a>
+          ))}
+        </div>
+      </section>
 
       {/* Experts Section */}
       <section id="experts" className="py-24 max-w-7xl mx-auto px-6">
@@ -313,7 +671,7 @@ export default function App() {
                 <div className="flex items-center gap-4">
                   <img 
                     src={expert.image} 
-                    alt={expert.name} 
+                    alt={`${expert.name} ${expert.title} 프로필 사진`}
                     className="w-16 h-16 rounded-full object-cover border-2 border-blue-50"
                     referrerPolicy="no-referrer"
                   />
@@ -373,18 +731,46 @@ export default function App() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section id="faq" className="py-24 bg-white px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">자주 묻는 질문</h2>
+            <p className="text-gray-500">
+              AI 검색과 일반 검색 모두에서 랩리워크의 전문성을 이해할 수 있도록 핵심 질문을 정리했습니다.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {FAQS.map((faq, idx) => (
+              <motion.article
+                key={faq.question}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.06 }}
+                className="border border-gray-100 rounded-2xl p-6 bg-gray-50"
+              >
+                <h3 className="text-lg font-bold text-gray-900">Q. {faq.question}</h3>
+                <p className="mt-3 text-gray-600 leading-relaxed">A. {faq.answer}</p>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer id="contact" className="py-24 bg-white text-center px-6 border-t border-gray-100">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">함께 더 나은 성장 경험을 만들기 위해</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">AI 기반 HRD 교육이 필요하다면</h2>
         <p className="mb-10 text-gray-500 max-w-2xl mx-auto text-lg">
-          Lab Re:work는 데이터와 AI를 통해 업무의 본질을 혁신합니다.
+          조직 상황, 교육 대상, 희망 일정, 관심 프로그램을 보내주시면 랩리워크가 맞춤형으로 안내드립니다.
         </p>
         <a 
-          href="mailto:Jena_Yoon@naver.com" 
+          href={`mailto:${CONTACT_EMAIL}`} 
           className="inline-flex items-center justify-center space-x-2 bg-blue-600 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/20"
         >
           <Mail size={20} />
-          <span>문의하기: Jena_Yoon@naver.com</span>
+          <span>문의하기: {CONTACT_EMAIL}</span>
         </a>
         <div className="mt-20 pt-8 border-t border-gray-100 text-sm text-gray-400">
           © {new Date().getFullYear()} Lab Re:work. All rights reserved.
@@ -410,7 +796,7 @@ export default function App() {
                 <div className="flex items-center gap-4">
                   <img 
                     src={selectedExpert.image} 
-                    alt={selectedExpert.name} 
+                    alt={`${selectedExpert.name} ${selectedExpert.title} 프로필 사진`}
                     className="w-16 h-16 rounded-full object-cover border-2 border-gray-100"
                     referrerPolicy="no-referrer"
                   />
@@ -469,9 +855,9 @@ export default function App() {
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-gray-100">
-                  <a href={`mailto:${selectedExpert.email}`} className="flex items-center text-gray-600 hover:text-blue-600 transition-colors">
+                  <a href={`mailto:${CONTACT_EMAIL}`} className="flex items-center text-gray-600 hover:text-blue-600 transition-colors">
                     <Mail size={18} className="mr-2" />
-                    {selectedExpert.email}
+                    {CONTACT_EMAIL}
                   </a>
                 </div>
               </div>
