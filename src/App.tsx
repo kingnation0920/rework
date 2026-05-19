@@ -232,22 +232,25 @@ const PROGRAMS = [
 
 const SERVICES = [
   {
-    title: 'AI HRD 교육',
+    title: 'AI 업무혁신 교육',
     href: '/service/org-training',
-    description: '생성형 AI와 데이터 분석 도구를 실제 업무 맥락에 맞게 익히고, 구성원이 AI를 성과 창출 도구로 활용하도록 돕습니다.',
-    keywords: ['생성형 AI 교육', 'AI 리터러시', '업무 자동화']
+    description: '생성형 AI, LLM 에이전트, 업무자동화, 프로젝트형 실습을 묶어 구성원이 AI를 실제 업무 성과로 연결하도록 돕습니다.',
+    keywords: ['생성형 AI 교육', 'LLM 에이전트', '업무 자동화'],
+    programIds: ['p3', 'p7', 'p4', 'p1']
   },
   {
-    title: '잡 크래프팅 워크숍',
+    title: 'AI 시대 일하는 방식 재설계',
     href: '/service/job-crafting',
-    description: '구성원이 과업, 관계, 인식을 주도적으로 재설계하여 직무 몰입도와 일의 의미를 회복하도록 설계합니다.',
-    keywords: ['잡 크래프팅', '직무 재설계', '직원 몰입도']
+    description: 'AI 도입 이후 구성원의 역할, 몰입, 일의 의미, 리더십 대화 방식을 다시 설계하는 잡 크래프팅 중심 패키지입니다.',
+    keywords: ['잡 크래프팅', '일하는 방식', '1on1 코칭'],
+    programIds: ['p2', 'p6', 'p8', 'p7']
   },
   {
-    title: 'AX 전환 교육',
+    title: 'AI 기반 조직문화·HRD 전환',
     href: '/service/ax-transformation',
-    description: 'AI 도입 과정에서 생기는 불안과 저항을 낮추고, 조직문화 변화관리와 리더십 실행 전략을 함께 다룹니다.',
-    keywords: ['AX 전환', '조직문화 변화관리', 'AI 도입 교육']
+    description: 'HR 담당자가 AI와 데이터를 활용해 조직문화를 진단하고, 변화관리 콘텐츠와 실행안을 만들도록 설계합니다.',
+    keywords: ['AX 전환', '조직문화 진단', 'HRD 전환'],
+    programIds: ['p5', 'p1', 'p4', 'p6', 'p8']
   }
 ];
 
@@ -257,20 +260,20 @@ const ROUTE_META: Record<string, { title: string; description: string }> = {
     description: '랩리워크는 생성형 AI, HRD 교육, 조직문화 진단, 잡 크래프팅, AX 전환 교육을 통해 구성원의 일하는 방식을 재설계하는 AI 기반 HRD 교육 전문가 그룹입니다.'
   },
   '/services': {
-    title: '서비스 소개 | AI HRD 교육 · 잡 크래프팅 · AX 전환 - 랩리워크',
-    description: '랩리워크의 AI HRD 교육, 잡 크래프팅 워크숍, AX 전환 교육 서비스를 소개합니다. 상세 콘텐츠는 준비 중입니다.'
+    title: '서비스 소개 | AI 업무혁신 · 일하는 방식 재설계 · 조직문화 HRD 전환 - 랩리워크',
+    description: '랩리워크의 3개 서비스 패키지는 8개 교육 프로그램을 조직 상황에 맞게 조합해 AI 업무혁신, 일하는 방식 재설계, 조직문화 HRD 전환을 지원합니다.'
   },
   '/service/job-crafting': {
-    title: '잡 크래프팅 컨설팅 | 구성원 몰입도와 직무 만족도를 높이는 방법 - 랩리워크',
-    description: '잡 크래프팅이란 구성원 스스로 업무를 재설계하여 몰입도를 높이는 조직 개발 기법입니다. 랩리워크의 잡 크래프팅 워크숍 상세 소개는 준비 중입니다.'
+    title: 'AI 시대 일하는 방식 재설계 | 잡 크래프팅과 1on1 코칭 - 랩리워크',
+    description: 'AI 도입 이후 구성원의 역할, 몰입, 일의 의미, 리더십 대화 방식을 다시 설계하는 랩리워크의 잡 크래프팅 중심 서비스입니다.'
   },
   '/service/org-training': {
-    title: 'AI HRD 조직 교육 | 생성형 AI와 데이터 기반 교육 프로그램 - 랩리워크',
-    description: '랩리워크는 생성형 AI, 데이터 분석, 리더십, 조직문화 교육을 결합한 AI 기반 HRD 조직 교육을 제공합니다. 상세 소개는 준비 중입니다.'
+    title: 'AI 업무혁신 교육 | LLM 에이전트와 생성형 AI 업무자동화 - 랩리워크',
+    description: '생성형 AI, LLM 에이전트, 업무자동화, 프로젝트형 실습을 묶어 구성원이 AI를 실제 업무 성과로 연결하도록 돕는 서비스입니다.'
   },
   '/service/ax-transformation': {
-    title: 'AX 전환 교육 | AI 도입 시 조직문화 변화관리 전략 - 랩리워크',
-    description: 'AI 전환 과정에서 발생하는 구성원 저항, 심리적 불안, 조직 갈등을 관리하는 랩리워크의 AX 전환 교육 상세 소개는 준비 중입니다.'
+    title: 'AI 기반 조직문화·HRD 전환 | AX 변화관리와 HR 솔루션 - 랩리워크',
+    description: 'HR 담당자가 AI와 데이터를 활용해 조직문화를 진단하고, 변화관리 콘텐츠와 실행안을 만들도록 설계한 랩리워크의 AX 전환 서비스입니다.'
   },
   '/blog': {
     title: '조직문화 인사이트 | 랩리워크 블로그',
@@ -280,22 +283,22 @@ const ROUTE_META: Record<string, { title: string; description: string }> = {
 
 const SERVICE_PAGE_CONTENT: Record<string, { eyebrow: string; heading: string; summary: string; tags: string[] }> = {
   '/service/job-crafting': {
-    eyebrow: 'Job Crafting',
-    heading: '잡 크래프팅 컨설팅',
-    summary: '구성원이 자신의 과업, 관계, 직무 인식을 주도적으로 재설계해 일의 의미와 몰입도를 높이는 조직개발 프로그램입니다.',
-    tags: ['잡 크래프팅', '직무 재설계', '직원 몰입도', '번아웃 예방']
+    eyebrow: 'Work Redesign',
+    heading: 'AI 시대 일하는 방식 재설계',
+    summary: 'AI 도입 이후 구성원의 역할, 몰입, 일의 의미, 리더십 대화 방식을 다시 설계하는 잡 크래프팅 중심 서비스입니다.',
+    tags: ['잡 크래프팅', '일하는 방식', '1on1 코칭', '직원 몰입도']
   },
   '/service/org-training': {
-    eyebrow: 'AI HRD Training',
-    heading: 'AI HRD 조직 교육',
-    summary: '생성형 AI와 데이터 기반 도구를 조직의 실제 업무에 연결해 구성원의 AI 활용 역량과 HRD 실행력을 높입니다.',
-    tags: ['AI HRD 교육', '생성형 AI 교육', '리더십 교육', '조직 교육']
+    eyebrow: 'AI Work Innovation',
+    heading: 'AI 업무혁신 교육',
+    summary: '생성형 AI, LLM 에이전트, 업무자동화, 프로젝트형 실습을 묶어 구성원이 AI를 실제 업무 성과로 연결하도록 돕습니다.',
+    tags: ['생성형 AI 교육', 'LLM 에이전트', '업무 자동화', 'PBL']
   },
   '/service/ax-transformation': {
-    eyebrow: 'AX Transformation',
-    heading: 'AX 전환 교육',
-    summary: 'AI 도입 과정에서 생기는 불안, 저항, 협업 방식의 변화를 교육과 변화관리 관점에서 다루는 프로그램입니다.',
-    tags: ['AX 전환', 'AI 도입', '변화관리', '조직문화']
+    eyebrow: 'AI HRD Transformation',
+    heading: 'AI 기반 조직문화·HRD 전환',
+    summary: 'HR 담당자가 AI와 데이터를 활용해 조직문화를 진단하고, 변화관리 콘텐츠와 실행안을 만들도록 설계합니다.',
+    tags: ['AX 전환', '조직문화 진단', 'HRD 전환', '변화관리']
   }
 };
 
@@ -360,6 +363,33 @@ function usePageMeta(path: string) {
     setMeta('twitter:description', meta.description);
     setCanonical(path);
   }, [path]);
+}
+
+function getServicePrograms(programIds: string[]) {
+  return programIds
+    .map(programId => PROGRAMS.find(program => program.id === programId))
+    .filter((program): program is typeof PROGRAMS[number] => Boolean(program));
+}
+
+function ProgramModuleList({ programIds }: { programIds: string[] }) {
+  const programs = getServicePrograms(programIds);
+
+  return (
+    <div className="mt-8">
+      <p className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-3">관련 프로그램 모듈</p>
+      <div className="space-y-3">
+        {programs.map(program => (
+          <div key={program.id} className="flex gap-3 rounded-2xl bg-gray-50 border border-gray-100 p-4">
+            <span className="font-mono font-bold text-blue-600 shrink-0">{program.number}</span>
+            <div>
+              <p className="font-bold text-gray-900 leading-snug">{program.title}</p>
+              <p className="mt-1 text-sm text-gray-500">{program.duration}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 function SiteNav({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean; setIsMenuOpen: (open: boolean) => void }) {
@@ -457,6 +487,7 @@ function ServicesPage() {
               <a key={service.href} href={service.href} className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-blue-100 transition-all duration-300">
                 <h2 className="text-2xl font-bold text-gray-900">{service.title}</h2>
                 <p className="mt-4 text-gray-600 leading-relaxed">{service.description}</p>
+                <ProgramModuleList programIds={service.programIds} />
                 <span className="mt-6 inline-flex items-center gap-2 text-blue-600 font-bold">
                   상세 페이지 보기 <ArrowRight size={18} />
                 </span>
@@ -473,6 +504,7 @@ function ServicesPage() {
 
 function ServiceDetailPage({ path }: { path: string }) {
   const content = SERVICE_PAGE_CONTENT[path];
+  const service = SERVICES.find(item => item.href === path);
 
   if (!content) return <NotFoundPage />;
 
@@ -488,6 +520,7 @@ function ServiceDetailPage({ path }: { path: string }) {
               <span key={tag} className="text-sm font-medium bg-blue-50 text-blue-700 px-4 py-2 rounded-full">{tag}</span>
             ))}
           </div>
+          {service && <ProgramModuleList programIds={service.programIds} />}
           <PendingNotice label={`${content.heading} 상세 콘텐츠`} />
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
             <a href="/services" className="inline-flex items-center justify-center gap-2 bg-white text-blue-700 px-6 py-3 rounded-full font-bold border border-blue-100 hover:bg-blue-50 transition-colors">
@@ -617,9 +650,9 @@ export default function App() {
       {/* Services Section */}
       <section id="services" className="py-24 max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">AI 기반 HRD 교육 서비스</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">3개 서비스 패키지</h2>
           <p className="text-gray-500 max-w-2xl mx-auto">
-            기술 도입 교육에 머무르지 않고, 구성원이 실제 업무와 조직문화 안에서 AI를 활용하도록 설계합니다.
+            8개 프로그램을 조직 상황에 맞게 조합해 AI 업무혁신, 일하는 방식 재설계, 조직문화·HRD 전환으로 제공합니다.
           </p>
         </div>
 
@@ -637,6 +670,7 @@ export default function App() {
               <span className="text-blue-600 font-mono font-bold">0{idx + 1}</span>
               <h3 className="mt-4 text-2xl font-bold text-gray-900">{service.title}</h3>
               <p className="mt-4 text-gray-600 leading-relaxed">{service.description}</p>
+              <ProgramModuleList programIds={service.programIds} />
               <div className="mt-6 flex flex-wrap gap-2">
                 {service.keywords.map(keyword => (
                   <span key={keyword} className="text-xs font-medium bg-blue-50 text-blue-700 px-3 py-1 rounded-full">
