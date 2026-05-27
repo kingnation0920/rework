@@ -274,9 +274,53 @@ const ROUTE_META: Record<string, { title: string; description: string }> = {
   },
   '/blog': {
     title: '조직문화 인사이트 | 랩리워크 블로그',
-    description: '잡 크래프팅, 조직문화, AX 전환, 리더십에 관한 실무 가이드와 사례 연구를 제공할 랩리워크 블로그 허브입니다. 콘텐츠는 준비 중입니다.'
+    description: '잡 크래프팅, 조직문화, AX 전환, 리더십에 관한 실무 가이드와 사례 연구를 제공하는 랩리워크 블로그입니다.'
+  },
+  '/blog/ai-hrd-training': {
+    title: 'AI 시대의 HRD 교육, 무엇이 달라져야 할까 | 랩리워크 블로그',
+    description: '생성형 AI 확산 이후 HRD 교육이 단순한 도구 교육을 넘어 업무 재설계와 조직문화 변화관리로 확장되어야 하는 이유를 정리합니다.'
   }
 };
+
+type BlogPost = {
+  slug: string;
+  title: string;
+  description: string;
+  category: string;
+  date: string;
+  readTime: string;
+  tags: string[];
+  paragraphs: string[];
+  takeaways: string[];
+};
+
+const BLOG_POSTS: BlogPost[] = [
+  {
+    slug: 'ai-hrd-training',
+    title: 'AI 시대의 HRD 교육, 무엇이 달라져야 할까',
+    description: '생성형 AI 확산 이후 HRD 교육은 도구 사용법을 알려주는 단기 교육을 넘어, 구성원이 실제 업무 방식을 재설계하도록 돕는 변화관리 프로그램이 되어야 합니다.',
+    category: 'AI HRD',
+    date: '2026-05-27',
+    readTime: '4분',
+    tags: ['AI HRD 교육', '생성형 AI 교육', 'AX 전환', '조직문화'],
+    paragraphs: [
+      '많은 조직이 생성형 AI 교육을 시작했지만, 교육 이후 업무 방식이 실제로 바뀌지 않는 경우가 많습니다. 이유는 간단합니다. AI 도구 사용법만 익히는 교육은 구성원의 일하는 방식, 의사결정 방식, 협업 문화를 바꾸기 어렵기 때문입니다.',
+      'AI 시대의 HRD 교육은 프롬프트 작성법에서 끝나면 안 됩니다. 구성원이 자신의 업무를 다시 정의하고, 반복 업무와 고부가가치 업무를 구분하며, AI를 동료처럼 활용하는 실험을 할 수 있어야 합니다. 이 과정에서 필요한 것은 기술 설명보다 업무 맥락에 맞춘 설계입니다.',
+      '랩리워크는 AI 활용 교육을 조직문화와 직무 재설계 관점에서 다룹니다. 구성원의 불안과 저항을 낮추고, 작은 성공 경험을 만들며, 실제 업무 산출물로 이어지는 프로그램을 설계합니다. AI를 배우는 것이 아니라 AI와 함께 일하는 방식을 익히게 하는 것이 핵심입니다.',
+      '결국 좋은 AI HRD 교육은 구성원이 “무엇을 자동화할까”보다 “나는 어떤 일에 더 집중해야 할까”를 묻게 만듭니다. 이 질문이 생길 때 AI 교육은 단순한 스킬 교육을 넘어 조직의 성과와 몰입을 높이는 변화의 출발점이 됩니다.'
+    ],
+    takeaways: [
+      'AI 교육은 도구 사용법보다 업무 재설계와 연결되어야 합니다.',
+      '구성원의 심리적 불안과 저항을 다루는 변화관리 설계가 필요합니다.',
+      '실제 업무 산출물과 작은 성공 경험이 AI 활용 확산의 핵심입니다.'
+    ]
+  }
+];
+
+function getBlogPost(path: string) {
+  const slug = path.replace('/blog/', '');
+  return BLOG_POSTS.find(post => post.slug === slug);
+}
 
 const SERVICE_PAGE_CONTENT: Record<string, { eyebrow: string; heading: string; summary: string; tags: string[] }> = {
   '/service/job-crafting': {
@@ -514,7 +558,7 @@ function BlogPage() {
           <p className="text-blue-600 font-semibold mb-4 tracking-wider text-sm uppercase">Blog</p>
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900">조직문화 인사이트</h1>
           <p className="mt-6 text-xl text-gray-600 max-w-3xl leading-relaxed">
-            잡 크래프팅, 조직문화, AX 전환, 리더십에 관한 실무 가이드와 사례 연구를 담을 블로그 허브입니다.
+            잡 크래프팅, 조직문화, AX 전환, 리더십에 관한 실무 가이드와 사례 연구를 담는 블로그 허브입니다.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
             {categories.map(category => (
@@ -523,9 +567,102 @@ function BlogPage() {
               </span>
             ))}
           </div>
-          <PendingNotice label="블로그 콘텐츠" />
+
+          <div className="mt-14 grid gap-8 md:grid-cols-2">
+            {BLOG_POSTS.map(post => (
+              <a
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="group bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-blue-100 transition-all duration-300"
+              >
+                <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500">
+                  <span className="font-bold text-blue-600">{post.category}</span>
+                  <span>{post.date}</span>
+                  <span>{post.readTime} 읽기</span>
+                </div>
+                <h2 className="mt-5 text-2xl md:text-3xl font-extrabold text-gray-900 leading-tight group-hover:text-blue-600 transition-colors">
+                  {post.title}
+                </h2>
+                <p className="mt-4 text-gray-600 leading-relaxed">{post.description}</p>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {post.tags.map(tag => (
+                    <span key={tag} className="text-xs font-medium bg-blue-50 text-blue-700 px-3 py-1 rounded-full">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <span className="mt-8 inline-flex items-center gap-2 text-blue-600 font-bold">
+                  글 읽기 <ArrowRight size={18} />
+                </span>
+              </a>
+            ))}
+          </div>
         </div>
       </section>
+    </PageShell>
+  );
+}
+
+function BlogPostPage({ path }: { path: string }) {
+  const post = getBlogPost(path);
+
+  if (!post) return <NotFoundPage />;
+
+  return (
+    <PageShell>
+      <article className="pt-36 pb-20 px-6">
+        <div className="max-w-3xl mx-auto">
+          <a href="/blog" className="inline-flex items-center gap-2 text-blue-600 font-bold mb-10">
+            블로그로 돌아가기
+          </a>
+          <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500">
+            <span className="font-bold text-blue-600">{post.category}</span>
+            <span>{post.date}</span>
+            <span>{post.readTime} 읽기</span>
+          </div>
+          <h1 className="mt-5 text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900 leading-tight">
+            {post.title}
+          </h1>
+          <p className="mt-6 text-xl text-gray-600 leading-relaxed">{post.description}</p>
+
+          <div className="mt-10 flex flex-wrap gap-2">
+            {post.tags.map(tag => (
+              <span key={tag} className="text-sm font-medium bg-blue-50 text-blue-700 px-4 py-2 rounded-full">
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <div className="mt-12 space-y-7 text-lg text-gray-700 leading-8">
+            {post.paragraphs.map(paragraph => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+
+          <section className="mt-14 rounded-3xl bg-gray-900 text-white p-8">
+            <h2 className="text-2xl font-bold">핵심 정리</h2>
+            <ul className="mt-6 space-y-4">
+              {post.takeaways.map(takeaway => (
+                <li key={takeaway} className="flex gap-3 text-gray-100 leading-relaxed">
+                  <span className="mt-1.5 h-2 w-2 rounded-full bg-blue-400 shrink-0" />
+                  <span>{takeaway}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <div className="mt-12 rounded-3xl border border-blue-100 bg-blue-50 p-8">
+            <h2 className="text-2xl font-bold text-gray-900">AI HRD 교육을 조직에 맞게 설계하고 싶다면</h2>
+            <p className="mt-4 text-gray-600 leading-relaxed">
+              조직 상황, 교육 대상, 현재 고민을 보내주시면 랩리워크가 맞춤형 프로그램으로 안내드립니다.
+            </p>
+            <a href={`mailto:${CONTACT_EMAIL}`} className="mt-6 inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-full font-bold hover:bg-blue-700 transition-colors">
+              <Mail size={18} />
+              상담 문의
+            </a>
+          </div>
+        </div>
+      </article>
     </PageShell>
   );
 }
@@ -554,6 +691,7 @@ export default function App() {
 
   if (path === '/services') return <ServicesPage />;
   if (path === '/blog') return <BlogPage />;
+  if (path.startsWith('/blog/')) return <BlogPostPage path={path} />;
   if (path.startsWith('/service/')) return <ServiceDetailPage path={path} />;
   if (path !== '/') return <NotFoundPage />;
 
