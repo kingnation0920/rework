@@ -279,6 +279,10 @@ const ROUTE_META: Record<string, { title: string; description: string }> = {
   '/blog/ai-hrd-training': {
     title: 'AI 시대의 HRD 교육, 무엇이 달라져야 할까 | 랩리워크 블로그',
     description: '생성형 AI 확산 이후 HRD 교육이 단순한 도구 교육을 넘어 업무 재설계와 조직문화 변화관리로 확장되어야 하는 이유를 정리합니다.'
+  },
+  '/blog/genai-organization-change-evidence-based': {
+    title: '생성AI는 조직을 어떻게 바꾸는가 | 랩리워크 블로그',
+    description: '2022년 이후 발표된 고인용 연구를 바탕으로 생성AI가 일하는 방식, 직무 구조, 학습 체계, 거버넌스에 미치는 영향을 정리합니다.'
   }
 };
 
@@ -292,9 +296,41 @@ type BlogPost = {
   tags: string[];
   paragraphs: string[];
   takeaways: string[];
+  sources?: string[];
 };
 
 const BLOG_POSTS: BlogPost[] = [
+  {
+    slug: 'genai-organization-change-evidence-based',
+    title: '생성AI는 조직을 어떻게 바꾸는가: 논문이 말하는 도입 이후의 변화 설계',
+    description: 'ChatGPT 이후, 조직은 AI를 도입할 것인가가 아니라 어떻게 정착시킬 것인가를 고민하는 단계로 넘어왔습니다. 최신 연구들은 생성AI의 성과가 모델 성능보다 조직의 변화관리 역량에서 결정된다고 말합니다.',
+    category: 'AI HRD',
+    date: '2026-05-27',
+    readTime: '7분',
+    tags: ['생성AI', 'ChatGPT', '조직변화', '변화관리', 'AI HRD', '직무재설계', '구현과학', '조직개발', '디지털전환', 'AI리터러시'],
+    paragraphs: [
+      '한 의료기관의 사례에서 출발해보자. ChatGPT-4에 의사-환자 대화 녹취를 입력해 SOAP 형식의 진료기록을 자동 생성한 연구(Kernberg et al., 2024)는 평균 23.6건의 오류를 보고했다. 그중 86%가 누락(omission)이었다. 흥미로운 점은 결론이다. 연구진은 AI 도입이 문서 작성 부담을 줄일 가능성은 분명하지만, 기존 워크플로에 매끄럽게 통합되어야 하며 임상가의 검토 단계가 반드시 설계되어야 한다고 밝혔다. 즉, 기술 자체의 정확도보다 조직이 어떻게 검증과 교정 절차를 끼워 넣느냐가 성과를 가른다는 것이다. 이는 생성AI 시대 조직변화의 첫 번째 원칙을 드러낸다. 도구는 워크플로 안에 끼워질 때 비로소 가치를 만든다.',
+      '조직 단위에서의 변화는 더 구조적이다. Reddy(2024)는 Implementation Science에 발표한 논문에서 생성AI를 의료조직에 도입하려면 기술수용모델(TAM)과 NASSS(Non-Adoption, Abandonment, Scale-up, Spread and Sustainability) 같은 구현과학(implementation science) 프레임이 필수라고 주장했다. 핵심 메시지는 분명하다. 기술적 역량만으로 복잡한 조직 생태계를 하루아침에 바꿀 수 없으며, 구현과학에 기반한 구조화된 도입 프로그램이 반드시 필요하다는 것이다. 다시 말해, 파일럿-확산-지속의 단계적 변화관리, 이해관계자 참여 설계, 책임 거버넌스가 없이는 도입은 실패하거나 표류한다. 이는 한국 HRD가 지금까지 AI 리터러시 교육 한 줄로 처리해온 영역을 훨씬 넘는 과제다.',
+      '조직 내 직무 구조도 재편된다. Bhuyan 외(2025)는 생성AI가 임상 영역뿐 아니라 비임상 행정, 즉 의료문서, 청구·수가관리, 홍보, 교육의 효율을 동시에 끌어올린다고 보고했다. 핵심 결과는 두 가지다. 첫째, 행정 업무 자동화가 임상가 번아웃을 줄여 직접 환자 케어 시간을 확보한다. 둘째, 학습·연구·운영이 지속학습형(continuous learning) 구조로 전환된다. 이 변화는 HR 관점에서 단순한 생산성 향상이 아니라 직무 재설계(job redesign)의 신호다. 반복 행정업무가 줄어든 자리에는 검토·판단·소통 역량을 요구하는 직무가 들어선다. 인사부서는 KSA(지식·기술·태도) 정의를 다시 써야 한다.',
+      '조직 통합 관점에서 가장 자주 인용되는 로드맵은 Yu 외(2023)의 연구다. 저자들은 생성AI 도입이 IT 부서만의 과제가 아님을 강조하며, 이해관계자가 함께 설계하는 공동 디자인(co-design) 프로세스를 핵심 원칙으로 제시한다. 임상가, 사용자, 정책담당자, 데이터 거버넌스 담당자가 같은 테이블에 앉지 않으면 RLHF·프롬프트 전략·평가체계 같은 기술 의사결정이 현장과 어긋난다는 것이다. HRD 언어로 옮기면 이렇다. AI는 OD(조직개발) 과제이지, IT 과제가 아니다.',
+      '거시적 흐름은 Wang 외(2023)가 Nature에 발표한 리뷰가 가장 명확하게 짚었다. 인용수 500회를 넘긴 이 논문은 자기지도학습과 기하학적 딥러닝, 생성모델이 가설 생성-실험 설계-데이터 해석의 전 과정에 침투하고 있음을 보여주며, AI 도구의 개발자와 사용자 모두 언제 그 접근이 개선되어야 하는지 이해할 역량이 필요하다고 강조했다. 이는 조직 구성원이 AI를 맹신하지도, 회피하지도 않게 만드는 비판적 활용 역량(critical AI competency)의 중요성을 의미한다. 이 역량이 빠진 조직에서는 AI 도입이 곧 의사결정 품질 저하로 직결된다.',
+      '마지막으로 Liu 외(2023)가 JAMA에 보고한 임상 활용 연구는 ChatGPT가 의사결정 보조 역할은 잘 수행하지만, 단독 판단자로는 신뢰할 수 없다는 점을 명확히 했다. 이 결론은 모든 산업에 그대로 적용된다. 생성AI는 대체(replacement)가 아니라 증강(augmentation) 도구다. HRD의 메시지도 여기서 출발해야 한다. 두려움이 아닌 협업, 자동화가 아닌 증강, 도입이 아닌 정착.',
+      '조직은 이미 변화의 중심에 있다. 질문은 더 이상 AI를 쓸 것인가가 아니다. 우리 조직은 AI를 정착시킬 변화 역량을 갖추고 있는가이다.'
+    ],
+    takeaways: [
+      'AI 도입 성과는 모델 성능이 아니라 조직의 변화관리·구현과학 역량이 결정한다.',
+      '생성AI는 임상·행정 워크플로를 동시에 재편하며, 직무 재설계와 KSA 재정의를 요구한다.',
+      '도입은 IT 과제가 아니라 OD(조직개발) 과제다. 공동 디자인과 비판적 활용 역량 없이는 정착하지 않는다.'
+    ],
+    sources: [
+      'Wang H, et al. Scientific discovery in the age of artificial intelligence. Nature. 2023;620(7972):47-60. doi:10.1038/s41586-023-06221-2. PMID: 37532811.',
+      'Reddy S. Generative AI in healthcare: an implementation science informed translational path on application, integration and governance. Implementation Science. 2024;19(1):27. doi:10.1186/s13012-024-01357-9. PMID: 38491544.',
+      'Yu P, Xu H, Hu X, Deng C. Leveraging Generative AI and Large Language Models: A Comprehensive Roadmap for Healthcare Integration. Healthcare (Basel). 2023;11(20):2776. doi:10.3390/healthcare11202776. PMID: 37893850.',
+      'Liu J, et al. Utility of ChatGPT in Clinical Practice. J Med Internet Res. 2023;25:e48568. PMID: 37379067.',
+      'Kernberg A, Gold JA, Mohan V. Using ChatGPT-4 to Create Structured Medical Notes From Audio Recordings of Physician-Patient Encounters: Comparative Study. J Med Internet Res. 2024;26:e54419. doi:10.2196/54419. PMID: 38648636.',
+      'Bhuyan SS, et al. Generative Artificial Intelligence Use in Healthcare: Opportunities for Clinical Excellence and Administrative Efficiency. J Med Syst. 2025;49(1):10. doi:10.1007/s10916-024-02136-1. PMID: 39820845.'
+    ]
+  },
   {
     slug: 'ai-hrd-training',
     title: 'AI 시대의 HRD 교육, 무엇이 달라져야 할까',
@@ -650,6 +686,17 @@ function BlogPostPage({ path }: { path: string }) {
               ))}
             </ul>
           </section>
+
+          {post.sources && (
+            <section className="mt-12 rounded-3xl border border-gray-100 bg-white p-8">
+              <h2 className="text-2xl font-bold text-gray-900">출처</h2>
+              <ol className="mt-6 space-y-4 list-decimal list-inside text-sm text-gray-600 leading-relaxed">
+                {post.sources.map(source => (
+                  <li key={source}>{source}</li>
+                ))}
+              </ol>
+            </section>
+          )}
 
           <div className="mt-12 rounded-3xl border border-blue-100 bg-blue-50 p-8">
             <h2 className="text-2xl font-bold text-gray-900">AI HRD 교육을 조직에 맞게 설계하고 싶다면</h2>
