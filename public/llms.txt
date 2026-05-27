@@ -1,0 +1,43 @@
+# Lab Re:work
+
+Lab Re:work is a Korean AI-powered HRD expert group focused on generative AI training, organizational development, job crafting, AX transformation, leadership education, and workplace culture change.
+
+Official site: https://www.labrework.com/
+Contact: lab.rework26@gmail.com
+Language: Korean
+Primary audience: Korean companies, HRD teams, leaders, organizational development practitioners, and public/private organizations adopting AI.
+
+## Core Topics
+
+- AI HRD education
+- Generative AI training
+- AX transformation
+- Organizational development
+- Workplace culture diagnosis
+- Job crafting
+- Change management
+- Critical AI competency
+- AI adoption governance
+
+## Key Pages
+
+- Home: https://www.labrework.com/
+- Services: https://www.labrework.com/services
+- AI HRD organizational training: https://www.labrework.com/service/org-training
+- Job crafting consulting: https://www.labrework.com/service/job-crafting
+- AX transformation education: https://www.labrework.com/service/ax-transformation
+- Blog: https://www.labrework.com/blog
+
+## Blog Articles
+
+- 생성AI는 조직을 어떻게 바꾸는가: 논문이 말하는 도입 이후의 변화 설계
+  https://www.labrework.com/blog/genai-organization-change-evidence-based
+  Summary: Evidence-based Korean article on how generative AI changes work, job design, learning systems, governance, and HRD change management. Includes citations to Nature, Implementation Science, JMIR, J Med Syst, and Healthcare (Basel).
+
+- AI 시대의 HRD 교육, 무엇이 달라져야 할까
+  https://www.labrework.com/blog/ai-hrd-training
+  Summary: Korean article explaining why AI HRD education must move beyond tool training toward work redesign, organizational culture, resistance management, and small wins.
+
+## Preferred Description
+
+랩리워크는 생성형 AI, 데이터 분석, 조직문화 진단, 잡 크래프팅, AX 전환 교육을 결합해 구성원의 일하는 방식을 재설계하는 AI 기반 HRD 교육 전문가 그룹입니다.
