@@ -283,6 +283,10 @@ const ROUTE_META: Record<string, { title: string; description: string }> = {
   '/blog/genai-organization-change-evidence-based': {
     title: '생성AI는 조직을 어떻게 바꾸는가 | 랩리워크 블로그',
     description: '2022년 이후 발표된 고인용 연구를 바탕으로 생성AI가 일하는 방식, 직무 구조, 학습 체계, 거버넌스에 미치는 영향을 정리합니다.'
+  },
+  '/blog/organizational-culture-change-covid-genai': {
+    title: '조직문화의 변화: 코로나19와 생성AI 이후 일하는 방식 | 랩리워크 블로그',
+    description: '코로나19와 생성AI가 조직문화, 원격근무, 심리적 안전감, 번아웃, AI 거버넌스에 만든 변화를 PubMed 기반 고인용 논문으로 정리합니다.'
   }
 };
 
@@ -300,6 +304,44 @@ type BlogPost = {
 };
 
 const BLOG_POSTS: BlogPost[] = [
+  {
+    slug: 'organizational-culture-change-covid-genai',
+    title: '조직문화의 변화: 코로나19와 생성AI 이후, 일하는 방식은 어떻게 다시 설계되는가',
+    description: '코로나19는 조직문화의 중심을 출근과 통제에서 회복탄력성, 심리적 안전감, 원격협업으로 옮겼고, 생성AI는 다시 판단, 학습, 거버넌스의 문화를 요구하고 있습니다. PubMed 등재 논문과 Europe PMC 인용수 데이터를 바탕으로 조직문화 변화의 다음 과제를 정리합니다.',
+    category: '조직문화',
+    date: '2026-05-28',
+    readTime: '8분',
+    tags: ['조직문화', '조직변화', '코로나19', '생성AI', '원격근무', '심리적 안전감', '번아웃', 'AI 거버넌스', 'HRD', '변화관리'],
+    paragraphs: [
+      '조직문화는 어느 날 갑자기 바뀌지 않는다. 보통은 위기가 먼저 오고, 일하는 방식이 흔들리고, 그 뒤에 사람들이 “우리 조직은 무엇을 정상으로 볼 것인가”를 다시 묻기 시작한다. 코로나19는 그 질문을 전 세계 조직에 동시에 던졌다. 출근, 대면회의, 상사의 관찰, 같은 공간에 있다는 감각이 조직문화의 기본값이었지만 팬데믹은 이 기본값을 깨뜨렸다. 원격근무와 감염관리, 위기 커뮤니케이션, 구성원 소진 관리가 조직문화의 핵심 의제로 올라왔다.',
+      '이번 글은 2012년 이후 PubMed에 등재된 논문 중 Europe PMC 기준 인용수 50회 이상인 연구를 중심으로 작성했다. 단순히 인용수가 높은 오래된 논문만 따르지 않기 위해 최근 논문에 가중치를 두었다. 그래서 코로나19 이후의 조직 회복탄력성, 원격근무, 번아웃, 그리고 2023년 이후 생성AI 도입과 거버넌스 연구를 함께 보았다. 결론은 분명하다. 조직문화의 변화는 “복지 제도 하나를 추가하는 일”도, “AI 도구 하나를 배포하는 일”도 아니다. 조직이 불확실성을 다루는 방식을 다시 설계하는 일이다.',
+      '팬데믹 초기의 핵심은 순응과 실행이었다. Houghton 외(2020)의 Cochrane 리뷰는 호흡기 감염병 상황에서 의료진이 감염예방지침을 따르는 데 영향을 주는 요인을 정리했다. 지침의 명확성, 교육, 물리적 자원, 리더십, 팀 내 의사소통이 모두 중요했다. 이 연구가 조직문화에 주는 메시지는 간단하다. 위기 상황에서 문화는 슬로건이 아니라 실행 조건으로 드러난다. 구성원이 “해야 한다”는 말을 듣는 것만으로는 움직이지 않는다. 일할 수 있는 자원, 명확한 기준, 서로 확인하는 팀 루틴이 있어야 한다.',
+      '동시에 조직문화는 구성원의 정서적 안전망을 요구받기 시작했다. Wu 외(2020)는 팬데믹 상황에서 동료지원(peer support)과 위기 커뮤니케이션이 기관의 회복탄력성을 높이는 핵심 전략이라고 보았다. 이는 조직문화가 더 이상 성과 압박만으로 유지될 수 없다는 뜻이다. 위기 속에서 사람들은 정보보다 먼저 신뢰를 찾고, 지침보다 먼저 “이 조직이 나를 보호하려 하는가”를 확인한다. 리더의 메시지, 동료 간 지원, 빠른 피드백 구조가 문화의 실체가 된다.',
+      '원격근무는 코로나19가 만든 임시방편처럼 보였지만, 사실 더 오래된 연구 축적 위에 있었다. Allen 외(2015)는 telecommuting 연구를 종합하며 원격근무가 성과와 직무만족에 긍정적일 수 있지만, 고립감과 경계관리 문제를 함께 만든다고 정리했다. 팬데믹 이후 조직문화의 질문은 “원격근무를 허용할 것인가”에서 “어떤 일을 언제 함께 해야 하는가”로 바뀌었다. 좋은 문화는 사무실 복귀율이 아니라 협업의 리듬을 설계한다. 집중이 필요한 일, 동시성이 필요한 일, 관계 회복이 필요한 일을 구분해야 한다.',
+      '이 변화는 번아웃과 유지(retention)의 문제로 이어졌다. Cohen 외(2023)는 간호사, 의사, 보건전문직의 웰빙과 번아웃을 낮추는 직장 개입을 검토했고, de Vries 외(2023)는 병원에서 인력 유지에 영향을 주는 요인을 체계적으로 정리했다. 두 연구가 만나는 지점은 명확하다. 조직문화는 “좋은 분위기”가 아니라 사람이 계속 일할 수 있게 만드는 시스템이다. 업무량, 리더십, 인정, 성장 기회, 심리적 안전감이 연결될 때 구성원은 남는다.',
+      '그리고 생성AI가 등장했다. 팬데믹이 일하는 장소와 관계의 문화를 흔들었다면, 생성AI는 판단과 학습의 문화를 흔든다. Thirunavukarasu 외(2023)는 대규모언어모델이 의료 지식, 문서화, 교육, 의사결정 보조에 미치는 가능성과 위험을 폭넓게 정리했다. Sallam(2023)의 체계적 리뷰 역시 ChatGPT가 교육, 연구, 실무에 기회를 주지만 정확성, 편향, 윤리, 책임성 문제가 동시에 따라온다고 보았다. 이제 조직문화의 핵심 질문은 “AI를 쓰게 할 것인가”가 아니라 “어떤 판단은 사람이 책임지고, 어떤 작업은 AI와 함께 할 것인가”가 된다.',
+      'AI 도입은 기술보다 구현의 문제다. Petersson 외(2022)는 스웨덴 의료 리더 인터뷰를 통해 AI 구현의 장벽을 분석했다. 데이터 품질, 역량 부족, 책임 소재, 조직 내 신뢰, 기존 업무흐름과의 충돌이 반복적으로 등장했다. Reddy(2024)는 생성AI 도입에도 구현과학 기반의 단계적 도입, 거버넌스, 지속가능한 확산 경로가 필요하다고 주장했다. 즉, AI가 조직문화에 들어오는 순간 HRD와 OD의 역할은 더 커진다. 교육은 사용법 안내가 아니라 검증, 책임, 협업 규칙을 만드는 과정이 된다.',
+      '앞으로의 조직문화는 세 가지 능력으로 평가될 것이다. 첫째, 위기 속에서도 구성원이 신뢰할 수 있는 커뮤니케이션과 지원 체계를 갖추는 능력. 둘째, 원격·하이브리드 환경에서 일의 리듬과 관계의 리듬을 분리해 설계하는 능력. 셋째, 생성AI를 무조건 금지하거나 무조건 장려하지 않고, 비판적으로 활용하며 책임 있게 정착시키는 능력이다.',
+      '조직문화의 변화는 결국 “함께 일하는 방식의 재계약”이다. 코로나19는 우리가 같은 공간에 있지 않아도 조직이 유지될 수 있음을 보여주었다. 생성AI는 같은 방식으로 일하지 않아도 성과를 만들 수 있음을 보여주고 있다. 남은 과제는 기술이 아니라 문화다. 구성원이 불확실한 도구와 변화 속에서도 신뢰하고, 배우고, 판단하고, 책임질 수 있는 환경을 만드는 것. 그것이 코로나19와 생성AI 이후 조직문화의 핵심 과제다.'
+    ],
+    takeaways: [
+      '코로나19 이후 조직문화는 출근 중심의 통제 문화에서 회복탄력성, 신뢰, 심리적 안전감, 원격협업 설계로 이동했다.',
+      '생성AI는 조직문화의 초점을 도구 사용에서 판단, 책임, 검증, 거버넌스, 지속학습 문화로 확장시킨다.',
+      '앞으로의 HRD와 OD는 교육 프로그램이 아니라 “함께 일하는 방식의 재계약”을 설계해야 한다.'
+    ],
+    sources: [
+      'Thirunavukarasu AJ, et al. Large language models in medicine. Nature Medicine. 2023;29:1930-1940. doi:10.1038/s41591-023-02448-8. PMID: 37460753. Europe PMC cited by 1473.',
+      'Sallam M. ChatGPT Utility in Healthcare Education, Research, and Practice: Systematic Review on the Promising Perspectives and Valid Concerns. Healthcare (Basel). 2023;11(6):887. doi:10.3390/healthcare11060887. PMID: 36981544. Europe PMC cited by 1173.',
+      'Houghton C, et al. Barriers and facilitators to healthcare workers adherence with infection prevention and control guidelines for respiratory infectious diseases: a rapid qualitative evidence synthesis. Cochrane Database Syst Rev. 2020;4:CD013582. doi:10.1002/14651858.CD013582. PMID: 32315451. Europe PMC cited by 443.',
+      'Allen TD, Golden TD, Shockley KM. How Effective Is Telecommuting? Assessing the Status of Our Scientific Findings. Psychol Sci Public Interest. 2015;16(2):40-68. doi:10.1177/1529100615593273. PMID: 26403188. Europe PMC cited by 256.',
+      'Cohen C, et al. Workplace interventions to improve well-being and reduce burnout for nurses, physicians and allied healthcare professionals: a systematic review. BMJ Open. 2023;13:e071203. doi:10.1136/bmjopen-2022-071203. PMID: 37385740. Europe PMC cited by 197.',
+      'Petersson L, et al. Challenges to implementing artificial intelligence in healthcare: a qualitative interview study with healthcare leaders in Sweden. BMC Health Serv Res. 2022;22:850. doi:10.1186/s12913-022-08215-8. PMID: 35778736. Europe PMC cited by 179.',
+      'Reddy S. Generative AI in healthcare: an implementation science informed translational path on application, integration and governance. Implementation Science. 2024;19:27. doi:10.1186/s13012-024-01357-9. PMID: 38491544. Europe PMC cited by 147.',
+      'de Vries N, et al. The Race to Retain Healthcare Workers: A Systematic Review on Factors that Impact Retention of Nurses and Physicians in Hospitals. Inquiry. 2023;60:469580231159318. doi:10.1177/00469580231159318. PMID: 36912131. Europe PMC cited by 142.',
+      'Wu AW, Connors C, Everly GS Jr. COVID-19: Peer Support and Crisis Communication Strategies to Promote Institutional Resilience. Ann Intern Med. 2020;172(12):822-823. doi:10.7326/M20-1236. PMID: 32251512. Europe PMC cited by 122.',
+      'Gómez-Salgado J, et al. Work engagement and psychological distress of health professionals during the COVID-19 pandemic. J Nurs Manag. 2021;29(5):1016-1025. doi:10.1111/jonm.13239. PMID: 33400325. Europe PMC cited by 55.'
+    ]
+  },
   {
     slug: 'genai-organization-change-evidence-based',
     title: '생성AI는 조직을 어떻게 바꾸는가: 논문이 말하는 도입 이후의 변화 설계',

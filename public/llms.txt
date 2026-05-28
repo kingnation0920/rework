@@ -30,6 +30,10 @@ Primary audience: Korean companies, HRD teams, leaders, organizational developme
 
 ## Blog Articles
 
+- 조직문화의 변화: 코로나19와 생성AI 이후, 일하는 방식은 어떻게 다시 설계되는가
+  https://www.labrework.com/blog/organizational-culture-change-covid-genai
+  Summary: Evidence-based Korean article on organizational culture change after COVID-19 and generative AI. Uses PubMed-indexed papers published since 2012 with Europe PMC citation counts of at least 50, weighted toward recent research on remote work, resilience, burnout, AI implementation, governance, and HRD.
+
 - 생성AI는 조직을 어떻게 바꾸는가: 논문이 말하는 도입 이후의 변화 설계
   https://www.labrework.com/blog/genai-organization-change-evidence-based
   Summary: Evidence-based Korean article on how generative AI changes work, job design, learning systems, governance, and HRD change management. Includes citations to Nature, Implementation Science, JMIR, J Med Syst, and Healthcare (Basel).
