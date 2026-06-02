@@ -212,6 +212,69 @@ const fieldNoteCategories = [
   }
 ];
 
+const fieldNotePosts = [
+  {
+    path: '/field-notes/kpc-ai-job-redesign-agent-course',
+    title: 'AI 시대의 직무재설계와 AI 에이전트 활용 과정에 랩리워크가 함께합니다',
+    description: '한국생산성본부의 「AI 시대의 직무재설계와 AI 에이전트 활용」 과정은 AI에 맡길 일과 사람이 집중해야 할 핵심 가치를 구분하고, 실무형 AI 에이전트를 직접 기획하는 교육입니다.',
+    category: '강의 현장',
+    datePublished: '2026-06-02',
+    dateModified: '2026-06-02',
+    location: '한국생산성본부',
+    author: '김기현',
+    keywords: ['AI 직무재설계', 'AI 에이전트', '생성형 AI 교육', '업무 생산성', '직무혁신', '강의 현장'],
+    sections: [
+      {
+        heading: 'AI를 쓰는 법보다 중요한 것은 일을 다시 설계하는 법입니다',
+        paragraphs: [
+          '생성형 AI의 확산은 단순히 새로운 도구를 배우는 문제를 넘어, 우리가 맡은 직무와 일하는 방식을 다시 정의해야 하는 과제로 이어지고 있습니다. 이제 중요한 질문은 AI를 사용할 수 있는가가 아니라 내 업무 중 무엇을 AI와 함께 재설계할 것인가입니다.',
+          '한국생산성본부에서 개설되는 「AI 시대의 직무재설계와 AI 에이전트 활용」 과정은 이러한 변화에 대응하기 위한 실무 중심 교육입니다. 랩리워크는 본 과정에서 AI 시대의 직무 변화, 업무 재설계, AI 에이전트 활용 전략을 현업 관점에서 다룹니다.'
+        ],
+        image: {
+          src: 'https://images.pexels.com/photos/34046709/pexels-photo-34046709.jpeg?auto=compress&cs=tinysrgb&w=1200',
+          alt: '비즈니스 교육 워크숍에서 참가자들이 노트북을 보며 토론하는 모습',
+          caption: '업무 맥락을 기준으로 AI 활용 가능 영역을 찾는 실습형 교육을 지향합니다. 이미지: Pexels'
+        }
+      },
+      {
+        heading: 'AI에 맡길 일과 사람이 집중해야 할 가치를 구분합니다',
+        paragraphs: [
+          '이번 과정의 핵심은 단순한 AI 기능 소개가 아닙니다. 참가자는 자신의 직무를 세분화해 AI에 맡길 수 있는 업무와 사람이 집중해야 할 핵심 가치를 구분하고, 이를 바탕으로 실제 업무 흐름에 적용 가능한 AI 에이전트를 기획해보게 됩니다.',
+          '특히 AI 활용에 대한 막연한 기대나 불안을 넘어, 개인의 역할과 경쟁력을 새롭게 정의하는 데 초점을 둡니다. AI가 업무를 대체하는 것이 아니라 구성원이 더 가치 있는 판단과 설계에 집중하도록 돕는 파트너가 될 수 있도록 사례와 실습 중심으로 접근합니다.'
+        ]
+      },
+      {
+        heading: '맞춤형 AI 에이전트를 직접 기획하고 적용합니다',
+        paragraphs: [
+          'AI 에이전트는 단순한 자동화 도구가 아니라 업무 흐름을 이해하고, 반복되는 판단과 산출물 생성을 보조하는 새로운 협업 방식입니다. 그래서 좋은 에이전트를 만들기 위해서는 먼저 자신의 업무 구조를 정확히 파악해야 합니다.',
+          '본 과정은 참가자가 재설계된 업무 흐름을 바탕으로 실무형 맞춤 AI 에이전트를 직접 기획하고 적용하는 경험을 제공하도록 구성되어 있습니다. AI 활용 역량을 기르고 싶은 재직자, 반복 업무를 줄이고 고부가가치 업무에 집중하고 싶은 실무자에게 특히 적합합니다.'
+        ],
+        image: {
+          src: 'https://images.pexels.com/photos/6326041/pexels-photo-6326041.jpeg?auto=compress&cs=tinysrgb&w=1200',
+          alt: '노트북을 활용해 온라인 교육과 업무 설명을 진행하는 강의 장면',
+          caption: 'AI 에이전트는 직무 맥락과 업무 흐름을 이해할 때 실질적인 성과로 이어집니다. 이미지: Pexels'
+        }
+      },
+      {
+        heading: 'AI 시대의 경쟁력은 도구 활용을 넘어 역할 재정의에서 시작됩니다',
+        paragraphs: [
+          '랩리워크는 이번 과정을 통해 참가자들이 AI를 도구로 익히는 데서 멈추지 않고, 자신의 업무를 재설계하고 AI 에이전트를 실무에 적용하는 구체적인 방법을 가져갈 수 있도록 돕겠습니다.',
+          'AI 시대에 자신의 역할과 경쟁력을 다시 점검하고 싶은 분, 조직 내 AI 활용을 확산해야 하는 담당자, 업무 생산성을 높이고 싶은 실무자라면 이번 과정을 통해 AI와 함께 일하는 방식을 더 선명하게 설계할 수 있을 것입니다.'
+        ]
+      }
+    ],
+    link: {
+      label: '한국생산성본부 과정 상세 보기',
+      href: 'https://www.kpc.or.kr/PTWED003_dtil_view.do?ecno=48676'
+    },
+    poster: {
+      src: 'https://www.kpc.or.kr/upload/outside/temp/2026/05/06/20260506_135505592_01232.jpg',
+      alt: 'AI 시대의 직무재설계와 AI 에이전트 활용 과정 안내 포스터',
+      caption: '한국생산성본부 「AI 시대의 직무재설계와 AI 에이전트 활용」 과정 안내 이미지'
+    }
+  }
+];
+
 function escapeHtml(value) {
   return String(value)
     .replaceAll('&', '&amp;')
@@ -314,11 +377,43 @@ function fieldNotesBody() {
       <h2>${escapeHtml(category.name)}</h2>
       <p>${escapeHtml(category.description)}</p>
     </article>`).join('\n');
+  const postCards = fieldNotePosts.map(post => `
+    <article>
+      <p style="color:#2563eb;font-weight:700">${escapeHtml(post.category)} · ${escapeHtml(post.datePublished)}</p>
+      <h2><a href="${post.path}">${escapeHtml(post.title)}</a></h2>
+      <p>${escapeHtml(post.description)}</p>
+    </article>`).join('\n');
 
   return layout(`
     <h1>현장 인사이트</h1>
     <p>${escapeHtml(fieldNotesPage.description)}</p>
+    <h2>최근 현장 기록</h2>
+    ${postCards}
+    <h2>카테고리</h2>
     ${categories}`);
+}
+
+function fieldNotePostBody(post) {
+  const sections = post.sections.map(section => `
+    <section>
+      <h2>${escapeHtml(section.heading)}</h2>
+      ${section.paragraphs.map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join('\n')}
+      ${section.image ? `<figure><img src="${section.image.src}" alt="${escapeHtml(section.image.alt)}" style="max-width:100%;height:auto;border-radius:20px" /><figcaption>${escapeHtml(section.image.caption)}</figcaption></figure>` : ''}
+    </section>`).join('\n');
+
+  return layout(`
+    <article>
+      <p style="color:#2563eb;font-weight:700">${escapeHtml(post.category)} · ${escapeHtml(post.datePublished)} · ${escapeHtml(post.location)}</p>
+      <h1>${escapeHtml(post.title)}</h1>
+      <p><strong>${escapeHtml(post.description)}</strong></p>
+      ${sections}
+      <section>
+        <h2>과정 신청 및 상세 안내</h2>
+        <p>교육 일정, 장소, 신청 방법은 한국생산성본부 과정 상세 페이지에서 확인하실 수 있습니다.</p>
+        <p><a href="${post.link.href}">${escapeHtml(post.link.label)}</a></p>
+      </section>
+      <figure><img src="${post.poster.src}" alt="${escapeHtml(post.poster.alt)}" style="max-width:100%;height:auto;border-radius:20px" /><figcaption>${escapeHtml(post.poster.caption)}</figcaption></figure>
+    </article>`);
 }
 
 function articleSchema(post) {
@@ -368,11 +463,50 @@ function fieldNotesSchema() {
       email: site.email
     },
     about: fieldNotesPage.keywords.map(keyword => ({ '@type': 'Thing', name: keyword })),
-    hasPart: fieldNoteCategories.map(category => ({
-      '@type': 'CreativeWork',
-      name: category.name,
-      description: category.description
-    }))
+    hasPart: [
+      ...fieldNotePosts.map(post => ({
+        '@type': 'Article',
+        headline: post.title,
+        url: `${site.url}${post.path}`,
+        datePublished: post.datePublished
+      })),
+      ...fieldNoteCategories.map(category => ({
+        '@type': 'CreativeWork',
+        name: category.name,
+        description: category.description
+      }))
+    ]
+  };
+}
+
+function fieldNotePostSchema(post) {
+  const canonical = `${site.url}${post.path}`;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.description,
+    inLanguage: 'ko-KR',
+    datePublished: post.datePublished,
+    dateModified: post.dateModified,
+    mainEntityOfPage: canonical,
+    url: canonical,
+    articleSection: post.category,
+    keywords: post.keywords,
+    image: [post.poster.src, ...post.sections.flatMap(section => section.image ? [section.image.src] : [])],
+    author: {
+      '@type': 'Person',
+      name: post.author
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: site.name,
+      alternateName: site.alternateName,
+      url: site.url,
+      email: site.email
+    },
+    about: post.keywords.map(keyword => ({ '@type': 'Thing', name: keyword })),
+    articleBody: stripTags(fieldNotePostBody(post))
   };
 }
 
@@ -437,6 +571,21 @@ await writeRoute('/field-notes', injectMeta(shell, fieldNotesPage, [
   jsonScript(fieldNotesBreadcrumbSchema())
 ], fieldNotesBody()));
 
+for (const post of fieldNotePosts) {
+  await writeRoute(post.path, injectMeta(shell, post, [
+    jsonScript(fieldNotePostSchema(post)),
+    jsonScript({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: '홈', item: site.url },
+        { '@type': 'ListItem', position: 2, name: '현장 인사이트', item: `${site.url}/field-notes` },
+        { '@type': 'ListItem', position: 3, name: post.title, item: `${site.url}${post.path}` }
+      ]
+    })
+  ], fieldNotePostBody(post)));
+}
+
 for (const post of posts) {
   await writeRoute(post.path, injectMeta(shell, post, [
     jsonScript(articleSchema(post)),
@@ -444,4 +593,4 @@ for (const post of posts) {
   ], articleBody(post)));
 }
 
-console.log(`Prerendered SEO routes: /blog, /field-notes, ${posts.map(post => post.path).join(', ')}`);
+console.log(`Prerendered SEO routes: /blog, /field-notes, ${fieldNotePosts.map(post => post.path).join(', ')}, ${posts.map(post => post.path).join(', ')}`);

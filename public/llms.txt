@@ -35,6 +35,10 @@ Primary audience: Korean companies, HRD teams, leaders, organizational developme
   https://www.labrework.com/field-notes
   Summary: Korean field notes board for lecture scenes, academic and paper presentations, corporate workshops, and education operation cases from Lab Re:work.
 
+- AI 시대의 직무재설계와 AI 에이전트 활용 과정에 랩리워크가 함께합니다
+  https://www.labrework.com/field-notes/kpc-ai-job-redesign-agent-course
+  Summary: Korean field note announcing Lab Re:work's participation in the Korea Productivity Center course "AI 시대의 직무재설계와 AI 에이전트 활용." Covers AI job redesign, AI agent planning, work redesign, and practical generative AI education.
+
 ## Blog Articles
 
 - 조직문화의 변화: 코로나19와 생성AI 이후, 일하는 방식은 어떻게 다시 설계되는가

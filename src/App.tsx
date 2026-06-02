@@ -280,6 +280,10 @@ const ROUTE_META: Record<string, { title: string; description: string }> = {
     title: '현장 인사이트 | 강의 현장 · 학회 발표 · 기업 워크숍 - 랩리워크',
     description: '랩리워크의 강의 현장, 학회·논문 발표, 기업 워크숍, 교육 운영 사례를 기록하는 현장 인사이트 게시판입니다.'
   },
+  '/field-notes/kpc-ai-job-redesign-agent-course': {
+    title: 'AI 시대의 직무재설계와 AI 에이전트 활용 과정 안내 | 랩리워크',
+    description: '한국생산성본부 AI 시대의 직무재설계와 AI 에이전트 활용 과정에 랩리워크가 함께합니다. AI와 함께 일하는 방식을 재설계하는 실무형 교육입니다.'
+  },
   '/blog/ai-hrd-training': {
     title: 'AI 시대의 HRD 교육, 무엇이 달라져야 할까 | 랩리워크 블로그',
     description: '생성형 AI 확산 이후 HRD 교육이 단순한 도구 교육을 넘어 업무 재설계와 조직문화 변화관리로 확장되어야 하는 이유를 정리합니다.'
@@ -305,6 +309,34 @@ type BlogPost = {
   paragraphs: string[];
   takeaways: string[];
   sources?: string[];
+};
+
+type FieldNotePost = {
+  slug: string;
+  title: string;
+  description: string;
+  category: string;
+  date: string;
+  location: string;
+  tags: string[];
+  sections: Array<{
+    heading: string;
+    paragraphs: string[];
+    image?: {
+      src: string;
+      alt: string;
+      caption: string;
+    };
+  }>;
+  link: {
+    label: string;
+    href: string;
+  };
+  poster: {
+    src: string;
+    alt: string;
+    caption: string;
+  };
 };
 
 const BLOG_POSTS: BlogPost[] = [
@@ -417,6 +449,72 @@ const FIELD_NOTE_CATEGORIES = [
     description: '교육 과정 설계, 운영 방식, 참여자 반응, 후속 적용 과정을 사례 중심으로 남깁니다.'
   }
 ];
+
+const FIELD_NOTE_POSTS: FieldNotePost[] = [
+  {
+    slug: 'kpc-ai-job-redesign-agent-course',
+    title: 'AI 시대의 직무재설계와 AI 에이전트 활용 과정에 랩리워크가 함께합니다',
+    description: '한국생산성본부의 「AI 시대의 직무재설계와 AI 에이전트 활용」 과정은 AI에 맡길 일과 사람이 집중해야 할 핵심 가치를 구분하고, 실무형 AI 에이전트를 직접 기획하는 교육입니다.',
+    category: '강의 현장',
+    date: '2026-06-02',
+    location: '한국생산성본부',
+    tags: ['AI 직무재설계', 'AI 에이전트', '생성형 AI 교육', '업무 생산성', '직무혁신', '강의 현장'],
+    sections: [
+      {
+        heading: 'AI를 쓰는 법보다 중요한 것은 일을 다시 설계하는 법입니다',
+        paragraphs: [
+          '생성형 AI의 확산은 단순히 새로운 도구를 배우는 문제를 넘어, 우리가 맡은 직무와 일하는 방식을 다시 정의해야 하는 과제로 이어지고 있습니다. 이제 중요한 질문은 “AI를 사용할 수 있는가”가 아니라 “내 업무 중 무엇을 AI와 함께 재설계할 것인가”입니다.',
+          '한국생산성본부에서 개설되는 「AI 시대의 직무재설계와 AI 에이전트 활용」 과정은 이러한 변화에 대응하기 위한 실무 중심 교육입니다. 랩리워크는 본 과정에서 AI 시대의 직무 변화, 업무 재설계, AI 에이전트 활용 전략을 현업 관점에서 다룹니다.'
+        ],
+        image: {
+          src: 'https://images.pexels.com/photos/34046709/pexels-photo-34046709.jpeg?auto=compress&cs=tinysrgb&w=1200',
+          alt: '비즈니스 교육 워크숍에서 참가자들이 노트북을 보며 토론하는 모습',
+          caption: '업무 맥락을 기준으로 AI 활용 가능 영역을 찾는 실습형 교육을 지향합니다. 이미지: Pexels'
+        }
+      },
+      {
+        heading: 'AI에 맡길 일과 사람이 집중해야 할 가치를 구분합니다',
+        paragraphs: [
+          '이번 과정의 핵심은 단순한 AI 기능 소개가 아닙니다. 참가자는 자신의 직무를 세분화해 AI에 맡길 수 있는 업무와 사람이 집중해야 할 핵심 가치를 구분하고, 이를 바탕으로 실제 업무 흐름에 적용 가능한 AI 에이전트를 기획해보게 됩니다.',
+          '특히 AI 활용에 대한 막연한 기대나 불안을 넘어, 개인의 역할과 경쟁력을 새롭게 정의하는 데 초점을 둡니다. AI가 업무를 대체하는 것이 아니라, 구성원이 더 가치 있는 판단과 설계에 집중하도록 돕는 파트너가 될 수 있도록 사례와 실습 중심으로 접근합니다.'
+        ]
+      },
+      {
+        heading: '맞춤형 AI 에이전트를 직접 기획하고 적용합니다',
+        paragraphs: [
+          'AI 에이전트는 단순한 자동화 도구가 아니라 업무 흐름을 이해하고, 반복되는 판단과 산출물 생성을 보조하는 새로운 협업 방식입니다. 그래서 좋은 에이전트를 만들기 위해서는 먼저 자신의 업무 구조를 정확히 파악해야 합니다.',
+          '본 과정은 참가자가 재설계된 업무 흐름을 바탕으로 실무형 맞춤 AI 에이전트를 직접 기획하고 적용하는 경험을 제공하도록 구성되어 있습니다. AI 활용 역량을 기르고 싶은 재직자, 반복 업무를 줄이고 고부가가치 업무에 집중하고 싶은 실무자에게 특히 적합합니다.'
+        ],
+        image: {
+          src: 'https://images.pexels.com/photos/6326041/pexels-photo-6326041.jpeg?auto=compress&cs=tinysrgb&w=1200',
+          alt: '노트북을 활용해 온라인 교육과 업무 설명을 진행하는 강의 장면',
+          caption: 'AI 에이전트는 직무 맥락과 업무 흐름을 이해할 때 실질적인 성과로 이어집니다. 이미지: Pexels'
+        }
+      },
+      {
+        heading: 'AI 시대의 경쟁력은 도구 활용을 넘어 역할 재정의에서 시작됩니다',
+        paragraphs: [
+          '랩리워크는 이번 과정을 통해 참가자들이 AI를 “도구”로 익히는 데서 멈추지 않고, 자신의 업무를 재설계하고 AI 에이전트를 실무에 적용하는 구체적인 방법을 가져갈 수 있도록 돕겠습니다.',
+          'AI 시대에 자신의 역할과 경쟁력을 다시 점검하고 싶은 분, 조직 내 AI 활용을 확산해야 하는 담당자, 업무 생산성을 높이고 싶은 실무자라면 이번 과정을 통해 AI와 함께 일하는 방식을 더 선명하게 설계할 수 있을 것입니다.'
+        ]
+      }
+    ],
+    link: {
+      label: '한국생산성본부 과정 상세 보기',
+      href: 'https://www.kpc.or.kr/PTWED003_dtil_view.do?ecno=48676'
+    },
+    poster: {
+      src: 'https://www.kpc.or.kr/upload/outside/temp/2026/05/06/20260506_135505592_01232.jpg',
+      alt: 'AI 시대의 직무재설계와 AI 에이전트 활용 과정 안내 포스터',
+      caption: '한국생산성본부 「AI 시대의 직무재설계와 AI 에이전트 활용」 과정 안내 이미지'
+    }
+  }
+];
+
+function getFieldNotePost(path: string) {
+  const slug = path.replace('/field-notes/', '');
+  return FIELD_NOTE_POSTS.find(post => post.slug === slug);
+}
 
 function getBlogPost(path: string) {
   const slug = path.replace('/blog/', '');
@@ -727,8 +825,41 @@ function FieldNotesPage() {
             ))}
           </div>
 
+          <div className="mt-16">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">최근 현장 기록</h2>
+            <div className="mt-8 grid gap-8 md:grid-cols-2">
+              {FIELD_NOTE_POSTS.map(post => (
+                <a
+                  key={post.slug}
+                  href={`/field-notes/${post.slug}`}
+                  className="group bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-blue-100 transition-all duration-300"
+                >
+                  <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500">
+                    <span className="font-bold text-blue-600">{post.category}</span>
+                    <span>{post.date}</span>
+                    <span>{post.location}</span>
+                  </div>
+                  <h3 className="mt-5 text-2xl md:text-3xl font-extrabold text-gray-900 leading-tight group-hover:text-blue-600 transition-colors">
+                    {post.title}
+                  </h3>
+                  <p className="mt-4 text-gray-600 leading-relaxed">{post.description}</p>
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {post.tags.slice(0, 4).map(tag => (
+                      <span key={tag} className="text-xs font-medium bg-blue-50 text-blue-700 px-3 py-1 rounded-full">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <span className="mt-8 inline-flex items-center gap-2 text-blue-600 font-bold">
+                    현장 기록 보기 <ArrowRight size={18} />
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+
           <div className="mt-14 rounded-3xl border border-blue-100 bg-blue-50 p-8 md:p-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">첫 현장 기록을 준비 중입니다</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">다음 현장 기록을 남기고 싶다면</h2>
             <p className="mt-4 text-gray-600 leading-relaxed max-w-3xl">
               강의 사진, 발표명, 날짜, 기관명 공개 가능 여부, 현장 반응을 정리하면 교육 사례 페이지로 확장할 수 있습니다.
             </p>
@@ -739,6 +870,76 @@ function FieldNotesPage() {
           </div>
         </div>
       </section>
+    </PageShell>
+  );
+}
+
+function FieldNotePostPage({ path }: { path: string }) {
+  const post = getFieldNotePost(path);
+
+  if (!post) return <NotFoundPage />;
+
+  return (
+    <PageShell>
+      <article className="pt-36 pb-20 px-6">
+        <div className="max-w-4xl mx-auto">
+          <a href="/field-notes" className="inline-flex items-center gap-2 text-blue-600 font-bold mb-10">
+            현장 인사이트로 돌아가기
+          </a>
+          <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500">
+            <span className="font-bold text-blue-600">{post.category}</span>
+            <span>{post.date}</span>
+            <span>{post.location}</span>
+          </div>
+          <h1 className="mt-5 text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900 leading-tight">
+            {post.title}
+          </h1>
+          <p className="mt-6 text-xl text-gray-600 leading-relaxed">{post.description}</p>
+
+          <div className="mt-10 flex flex-wrap gap-2">
+            {post.tags.map(tag => (
+              <span key={tag} className="text-sm font-medium bg-blue-50 text-blue-700 px-4 py-2 rounded-full">
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <div className="mt-14 space-y-14">
+            {post.sections.map(section => (
+              <section key={section.heading} className="space-y-6">
+                <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900">{section.heading}</h2>
+                <div className="space-y-6 text-lg text-gray-700 leading-8">
+                  {section.paragraphs.map(paragraph => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+                {section.image && (
+                  <figure className="overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm">
+                    <img src={section.image.src} alt={section.image.alt} className="w-full aspect-[16/9] object-cover" />
+                    <figcaption className="px-5 py-4 text-sm text-gray-500">{section.image.caption}</figcaption>
+                  </figure>
+                )}
+              </section>
+            ))}
+          </div>
+
+          <div className="mt-14 rounded-3xl border border-blue-100 bg-blue-50 p-8">
+            <h2 className="text-2xl font-bold text-gray-900">과정 신청 및 상세 안내</h2>
+            <p className="mt-4 text-gray-600 leading-relaxed">
+              교육 일정, 장소, 신청 방법은 한국생산성본부 과정 상세 페이지에서 확인하실 수 있습니다.
+            </p>
+            <a href={post.link.href} target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-full font-bold hover:bg-blue-700 transition-colors">
+              {post.link.label}
+              <ArrowRight size={18} />
+            </a>
+          </div>
+
+          <figure className="mt-10 overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm">
+            <img src={post.poster.src} alt={post.poster.alt} className="w-full object-contain bg-green-50" />
+            <figcaption className="px-5 py-4 text-sm text-gray-500">{post.poster.caption}</figcaption>
+          </figure>
+        </div>
+      </article>
     </PageShell>
   );
 }
@@ -843,6 +1044,7 @@ export default function App() {
   if (path === '/services') return <ServicesPage />;
   if (path === '/blog') return <BlogPage />;
   if (path === '/field-notes') return <FieldNotesPage />;
+  if (path.startsWith('/field-notes/')) return <FieldNotePostPage path={path} />;
   if (path.startsWith('/blog/')) return <BlogPostPage path={path} />;
   if (path.startsWith('/service/')) return <ServiceDetailPage path={path} />;
   if (path !== '/') return <NotFoundPage />;
