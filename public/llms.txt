@@ -27,6 +27,13 @@ Primary audience: Korean companies, HRD teams, leaders, organizational developme
 - Job crafting consulting: https://www.labrework.com/service/job-crafting
 - AX transformation education: https://www.labrework.com/service/ax-transformation
 - Blog: https://www.labrework.com/blog
+- Field insights: https://www.labrework.com/field-notes
+
+## Field Insights
+
+- 현장 인사이트
+  https://www.labrework.com/field-notes
+  Summary: Korean field notes board for lecture scenes, academic and paper presentations, corporate workshops, and education operation cases from Lab Re:work.
 
 ## Blog Articles
 

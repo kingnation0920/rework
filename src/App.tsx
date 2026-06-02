@@ -276,6 +276,10 @@ const ROUTE_META: Record<string, { title: string; description: string }> = {
     title: '조직문화 인사이트 | 랩리워크 블로그',
     description: '잡 크래프팅, 조직문화, AX 전환, 리더십에 관한 실무 가이드와 사례 연구를 제공하는 랩리워크 블로그입니다.'
   },
+  '/field-notes': {
+    title: '현장 인사이트 | 강의 현장 · 학회 발표 · 기업 워크숍 - 랩리워크',
+    description: '랩리워크의 강의 현장, 학회·논문 발표, 기업 워크숍, 교육 운영 사례를 기록하는 현장 인사이트 게시판입니다.'
+  },
   '/blog/ai-hrd-training': {
     title: 'AI 시대의 HRD 교육, 무엇이 달라져야 할까 | 랩리워크 블로그',
     description: '생성형 AI 확산 이후 HRD 교육이 단순한 도구 교육을 넘어 업무 재설계와 조직문화 변화관리로 확장되어야 하는 이유를 정리합니다.'
@@ -395,6 +399,25 @@ const BLOG_POSTS: BlogPost[] = [
   }
 ];
 
+const FIELD_NOTE_CATEGORIES = [
+  {
+    name: '강의 현장',
+    description: '생성형 AI, 조직문화, 리더십, 잡 크래프팅 교육이 실제 현장에서 어떻게 진행되는지 기록합니다.'
+  },
+  {
+    name: '학회·논문 발표',
+    description: '학술대회 발표, 논문 발표, 연구 기반 인사이트 공유 활동을 정리합니다.'
+  },
+  {
+    name: '기업 워크숍',
+    description: '기업과 기관의 문제를 다룬 워크숍, 퍼실리테이션, 변화관리 세션의 현장 기록입니다.'
+  },
+  {
+    name: '교육 운영 사례',
+    description: '교육 과정 설계, 운영 방식, 참여자 반응, 후속 적용 과정을 사례 중심으로 남깁니다.'
+  }
+];
+
 function getBlogPost(path: string) {
   const slug = path.replace('/blog/', '');
   return BLOG_POSTS.find(post => post.slug === slug);
@@ -496,6 +519,7 @@ function SiteNav({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean; setIsMenu
           <a href="/" className="hover:text-blue-600 transition">홈</a>
           <a href="/services" className="hover:text-blue-600 transition">서비스</a>
           <a href="/blog" className="hover:text-blue-600 transition">블로그</a>
+          <a href="/field-notes" className="hover:text-blue-600 transition">현장 인사이트</a>
           <a href="/#experts" className="hover:text-blue-600 transition">전문가</a>
           <a href="/#programs" className="hover:text-blue-600 transition">프로그램</a>
           <a href="/#contact" className="hover:text-blue-600 transition">문의</a>
@@ -518,6 +542,7 @@ function SiteNav({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean; setIsMenu
               <a href="/" onClick={closeMenu}>홈</a>
               <a href="/services" onClick={closeMenu}>서비스</a>
               <a href="/blog" onClick={closeMenu}>블로그</a>
+              <a href="/field-notes" onClick={closeMenu}>현장 인사이트</a>
               <a href="/#experts" onClick={closeMenu}>전문가</a>
               <a href="/#programs" onClick={closeMenu}>프로그램</a>
               <a href="/#contact" onClick={closeMenu}>문의</a>
@@ -681,6 +706,43 @@ function BlogPage() {
   );
 }
 
+function FieldNotesPage() {
+  return (
+    <PageShell>
+      <section className="pt-36 pb-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <p className="text-blue-600 font-semibold mb-4 tracking-wider text-sm uppercase">Field Notes</p>
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900">현장 인사이트</h1>
+          <p className="mt-6 text-xl text-gray-600 max-w-3xl leading-relaxed">
+            강의 현장, 학회·논문 발표, 기업 워크숍, 교육 운영 사례를 통해 랩리워크가 현장에서 어떻게 변화를 설계하는지 기록합니다.
+          </p>
+
+          <div className="mt-12 grid md:grid-cols-2 gap-8">
+            {FIELD_NOTE_CATEGORIES.map(category => (
+              <article key={category.name} className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+                <span className="text-blue-600 font-bold text-sm">현장 인사이트</span>
+                <h2 className="mt-4 text-2xl md:text-3xl font-extrabold text-gray-900">{category.name}</h2>
+                <p className="mt-4 text-gray-600 leading-relaxed">{category.description}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-14 rounded-3xl border border-blue-100 bg-blue-50 p-8 md:p-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">첫 현장 기록을 준비 중입니다</h2>
+            <p className="mt-4 text-gray-600 leading-relaxed max-w-3xl">
+              강의 사진, 발표명, 날짜, 기관명 공개 가능 여부, 현장 반응을 정리하면 교육 사례 페이지로 확장할 수 있습니다.
+            </p>
+            <a href={`mailto:${CONTACT_EMAIL}`} className="mt-6 inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-full font-bold hover:bg-blue-700 transition-colors">
+              <Mail size={18} />
+              현장 기록 문의
+            </a>
+          </div>
+        </div>
+      </section>
+    </PageShell>
+  );
+}
+
 function BlogPostPage({ path }: { path: string }) {
   const post = getBlogPost(path);
 
@@ -780,6 +842,7 @@ export default function App() {
 
   if (path === '/services') return <ServicesPage />;
   if (path === '/blog') return <BlogPage />;
+  if (path === '/field-notes') return <FieldNotesPage />;
   if (path.startsWith('/blog/')) return <BlogPostPage path={path} />;
   if (path.startsWith('/service/')) return <ServiceDetailPage path={path} />;
   if (path !== '/') return <NotFoundPage />;

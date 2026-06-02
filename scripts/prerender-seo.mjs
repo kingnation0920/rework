@@ -186,6 +186,32 @@ const blogPage = {
   description: '잡 크래프팅, 조직문화, AX 전환, 리더십에 관한 실무 가이드와 사례 연구를 제공하는 랩리워크 블로그입니다.'
 };
 
+const fieldNotesPage = {
+  path: '/field-notes',
+  title: '현장 인사이트 | 강의 현장 · 학회 발표 · 기업 워크숍 - 랩리워크',
+  description: '랩리워크의 강의 현장, 학회·논문 발표, 기업 워크숍, 교육 운영 사례를 기록하는 현장 인사이트 게시판입니다.',
+  keywords: ['현장 인사이트', '강의 현장', '학회 발표', '논문 발표', '기업 워크숍', '교육 운영 사례', 'AI HRD 교육', '조직문화 워크숍']
+};
+
+const fieldNoteCategories = [
+  {
+    name: '강의 현장',
+    description: '생성형 AI, 조직문화, 리더십, 잡 크래프팅 교육이 실제 현장에서 어떻게 진행되는지 기록합니다.'
+  },
+  {
+    name: '학회·논문 발표',
+    description: '학술대회 발표, 논문 발표, 연구 기반 인사이트 공유 활동을 정리합니다.'
+  },
+  {
+    name: '기업 워크숍',
+    description: '기업과 기관의 문제를 다룬 워크숍, 퍼실리테이션, 변화관리 세션의 현장 기록입니다.'
+  },
+  {
+    name: '교육 운영 사례',
+    description: '교육 과정 설계, 운영 방식, 참여자 반응, 후속 적용 과정을 사례 중심으로 남깁니다.'
+  }
+];
+
 function escapeHtml(value) {
   return String(value)
     .replaceAll('&', '&amp;')
@@ -239,7 +265,7 @@ function injectMeta(html, route, schemaScripts, bodyHtml) {
 
 function layout(content) {
   return `<main style="font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:880px;margin:0 auto;padding:48px 20px;line-height:1.75;color:#172033">
-  <p><a href="/blog" style="color:#2563eb;font-weight:700">Lab Re:work Blog</a></p>
+  <p><a href="/" style="color:#2563eb;font-weight:700">Lab Re:work</a></p>
   ${content}
 </main>`;
 }
@@ -281,6 +307,20 @@ function blogBody() {
     ${cards}`);
 }
 
+function fieldNotesBody() {
+  const categories = fieldNoteCategories.map(category => `
+    <article>
+      <p style="color:#2563eb;font-weight:700">현장 인사이트</p>
+      <h2>${escapeHtml(category.name)}</h2>
+      <p>${escapeHtml(category.description)}</p>
+    </article>`).join('\n');
+
+  return layout(`
+    <h1>현장 인사이트</h1>
+    <p>${escapeHtml(fieldNotesPage.description)}</p>
+    ${categories}`);
+}
+
 function articleSchema(post) {
   const canonical = `${site.url}${post.path}`;
   return {
@@ -309,6 +349,41 @@ function articleSchema(post) {
     citation: post.citations.map(citation => citation.url),
     about: post.keywords.map(keyword => ({ '@type': 'Thing', name: keyword })),
     articleBody: stripTags(articleBody(post))
+  };
+}
+
+function fieldNotesSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: fieldNotesPage.title,
+    description: fieldNotesPage.description,
+    url: `${site.url}${fieldNotesPage.path}`,
+    inLanguage: 'ko-KR',
+    publisher: {
+      '@type': 'Organization',
+      name: site.name,
+      alternateName: site.alternateName,
+      url: site.url,
+      email: site.email
+    },
+    about: fieldNotesPage.keywords.map(keyword => ({ '@type': 'Thing', name: keyword })),
+    hasPart: fieldNoteCategories.map(category => ({
+      '@type': 'CreativeWork',
+      name: category.name,
+      description: category.description
+    }))
+  };
+}
+
+function fieldNotesBreadcrumbSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '홈', item: site.url },
+      { '@type': 'ListItem', position: 2, name: '현장 인사이트', item: `${site.url}${fieldNotesPage.path}` }
+    ]
   };
 }
 
@@ -357,6 +432,11 @@ await writeRoute('/blog', injectMeta(shell, blogPage, [
   jsonScript(breadcrumbSchema(blogPage, '블로그'))
 ], blogBody()));
 
+await writeRoute('/field-notes', injectMeta(shell, fieldNotesPage, [
+  jsonScript(fieldNotesSchema()),
+  jsonScript(fieldNotesBreadcrumbSchema())
+], fieldNotesBody()));
+
 for (const post of posts) {
   await writeRoute(post.path, injectMeta(shell, post, [
     jsonScript(articleSchema(post)),
@@ -364,4 +444,4 @@ for (const post of posts) {
   ], articleBody(post)));
 }
 
-console.log(`Prerendered SEO routes: /blog, ${posts.map(post => post.path).join(', ')}`);
+console.log(`Prerendered SEO routes: /blog, /field-notes, ${posts.map(post => post.path).join(', ')}`);
