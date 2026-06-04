@@ -16,6 +16,69 @@ const site = {
 
 const posts = [
   {
+    path: '/blog/ai-work-redesign-after-generative-ai',
+    title: 'AI 도입은 왜 교육보다 ‘일의 재설계’가 먼저인가: 2024년 이후 논문들이 말하는 조직 변화의 조건',
+    description: '2024년 이후 OpenAlex에서 확인한 AI·HRD·조직학습 관련 논문을 바탕으로 AI 도입이 도구 교육을 넘어 직무 재설계, 심리적 안전감, 리더십, 거버넌스 설계로 이어져야 하는 이유를 정리합니다.',
+    category: 'AI HRD',
+    datePublished: '2026-06-05',
+    dateModified: '2026-06-05',
+    author: '김기현',
+    keywords: ['AI HRD', '생성형 AI', '직무재설계', '조직학습', '심리적 안전감', 'AI 리터러시', '리더십', '변화관리'],
+    sections: [
+      {
+        heading: 'AI 도입의 질문은 도구가 아니라 일의 재설계다',
+        paragraphs: [
+          '생성형 AI 교육을 요청하는 조직에서 가장 자주 나오는 질문은 “우리 직원들이 어떤 도구를 배워야 할까요?”이다. 하지만 2024년 이후 발표된 AI·HRD·조직학습 연구들을 보면 더 중요한 질문은 “우리 조직은 AI가 들어온 뒤 일을 어떻게 다시 설계할 것인가?”다.',
+          'OpenAlex API로 2024년 이후 발표된 AI와 HRD, 조직학습, 직무 변화 관련 논문을 살펴보면 AI는 단순히 업무 속도를 높이는 도구가 아니다. 채용, 성과관리, 코칭, 리더십, 학습, 심리적 안전감, 조직 정의감까지 건드리는 변화 요인이다.'
+        ]
+      },
+      {
+        heading: 'AI는 HR 활동과 업무 맥락을 함께 바꾼다',
+        paragraphs: [
+          'Frontiers in Psychology의 2024년 스코핑 리뷰는 AI가 HR 활동에 미치는 영향을 업무 자동화, HR 데이터 활용 최적화, 인간 역량의 증강, 업무 맥락 재설계, 일의 사회적·관계적 측면 변화로 정리한다.',
+          '이 관점에서 AI HRD 교육은 프롬프트 작성법만 가르치는 방식으로는 부족하다. 구성원은 AI 결과를 검토하는 법, 자동화 가능한 일과 사람이 책임져야 할 일을 구분하는 법, 편향과 오류를 조직적으로 다루는 법을 배워야 한다.'
+        ]
+      },
+      {
+        heading: 'AI 도입은 몰입과 저항을 동시에 만든다',
+        paragraphs: [
+          '제조·린 조직 연구는 AI가 직원 몰입에 영향을 줄 수 있음을 보여준다. 구성원이 AI를 감시나 대체 시스템으로 느끼면 몰입은 떨어지고, 판단과 개선 활동을 돕는 도구로 경험하면 참여를 높이는 촉매가 될 수 있다.',
+          'AI 코칭 연구들도 같은 시사점을 준다. AI는 시간과 비용 측면에서 가능성을 열지만, 전문직 종사자에게 위협감과 방어적 반응을 만들 수 있다. 사람의 전문성을 단순 대체하는 방식이 아니라 판단과 관계 형성을 보완하는 방식으로 설계되어야 한다.'
+        ]
+      },
+      {
+        heading: '심리적 안전감과 학습 지향 리더십이 필요하다',
+        paragraphs: [
+          '2025년 한국 직장인 연구는 조직의 AI 도입이 심리적 안전감에 부정적 영향을 줄 수 있고, 이것이 직원 우울 수준과 연결될 수 있음을 분석했다. 동시에 윤리적 리더십은 이 관계를 조절하는 요인으로 제시된다.',
+          '2024년 학습 지향 리더십 리뷰는 리더가 지원, 교육, 역할 모델링을 직접 수행하고, 학습 분위기와 업무 조직, 자원, 지식 공유를 간접적으로 설계해야 한다고 본다. AI 도입에서도 리더는 AI 사용을 지시하는 사람이 아니라 AI와 함께 배우는 환경을 설계하는 사람이어야 한다.'
+        ]
+      },
+      {
+        heading: 'AI HRD 교육은 리터러시, 직무 재설계, 변화관리로 확장되어야 한다',
+        paragraphs: [
+          '랩리워크 관점에서 AI HRD 교육은 세 단계로 설계될 필요가 있다. 첫째, AI 리터러시다. 구성원이 생성형 AI의 가능성과 한계를 이해하고 결과물을 비판적으로 검토할 수 있어야 한다.',
+          '둘째, 직무 재설계다. 각자의 업무를 과업, 관계, 판단의 단위로 나누고 AI와 사람이 함께 일할 흐름을 다시 그려야 한다. 셋째, 조직 변화관리다. 심리적 안전감, 윤리 기준, 리더의 역할 모델링, 데이터 거버넌스를 함께 설계해야 한다.'
+        ]
+      }
+    ],
+    takeaways: [
+      '2024년 이후 연구들은 AI 도입을 업무 자동화보다 업무 맥락 재설계의 문제로 본다.',
+      'AI HRD 교육은 프롬프트 교육을 넘어 검토, 판단, 윤리, 역할 재정의를 포함해야 한다.',
+      'AI 도입은 심리적 안전감과 리더십의 영향을 크게 받는다.',
+      'HRD의 역할은 AI 사용법 전달자가 아니라 AI와 함께 일하는 방식을 설계하는 변화관리자다.'
+    ],
+    citations: [
+      { text: 'OpenAlex API. Search query: generative AI organizational learning workplace HRD. Filter: from_publication_date:2024-01-01. Retrieved 2026-06-05.', url: 'https://api.openalex.org/' },
+      { text: 'The effects of artificial intelligence on human resource activities and the roles of the human resource triad. Frontiers in Psychology. 2024.', url: 'https://doi.org/10.3389/fpsyg.2024.1360401' },
+      { text: 'Tortorella GL, et al. How does artificial intelligence impact employees’ engagement in lean organisations? International Journal of Production Research. 2024.', url: 'https://doi.org/10.1080/00207543.2024.2368698' },
+      { text: 'Transformative AI in human resource management: enhancing workforce planning with topic modeling. Cogent Business & Management. 2024.', url: 'https://doi.org/10.1080/23311975.2024.2432550' },
+      { text: 'The coach bots are coming: exploring global coaches’ attitudes and responses to the threat of AI coaching. Human Resource Development International. 2024.', url: 'https://doi.org/10.1080/13678868.2024.2375934' },
+      { text: 'Ethics in digital and AI coaching. Human Resource Development International. 2024.', url: 'https://doi.org/10.1080/13678868.2024.2315928' },
+      { text: 'Learning-Oriented Leadership in Organizations: An Integrative Review of Qualitative Studies. Human Resource Development Review. 2024.', url: 'https://doi.org/10.1177/15344843241239723' },
+      { text: 'The dark side of artificial intelligence adoption: linking artificial intelligence adoption to employee depression via psychological safety and ethical leadership. Humanities and Social Sciences Communications. 2025.', url: 'https://doi.org/10.1057/s41599-025-05040-2' }
+    ]
+  },
+  {
     path: '/blog/organizational-culture-change-covid-genai',
     title: '조직문화의 변화: 코로나19와 생성AI 이후, 일하는 방식은 어떻게 다시 설계되는가',
     description: '코로나19는 조직문화의 중심을 출근과 통제에서 회복탄력성, 심리적 안전감, 원격협업으로 옮겼고, 생성AI는 다시 판단, 학습, 거버넌스의 문화를 요구하고 있습니다.',

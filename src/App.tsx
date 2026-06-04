@@ -295,6 +295,10 @@ const ROUTE_META: Record<string, { title: string; description: string }> = {
   '/blog/organizational-culture-change-covid-genai': {
     title: '조직문화의 변화: 코로나19와 생성AI 이후 일하는 방식 | 랩리워크 블로그',
     description: '코로나19와 생성AI가 조직문화, 원격근무, 심리적 안전감, 번아웃, AI 거버넌스에 만든 변화를 PubMed 기반 고인용 논문으로 정리합니다.'
+  },
+  '/blog/ai-work-redesign-after-generative-ai': {
+    title: 'AI 도입은 왜 교육보다 일의 재설계가 먼저인가 | 랩리워크 블로그',
+    description: '2024년 이후 OpenAlex 논문을 바탕으로 AI 도입이 HRD 교육, 직무 재설계, 심리적 안전감, 리더십, 조직 변화관리에 주는 시사점을 정리합니다.'
   }
 };
 
@@ -307,6 +311,12 @@ type BlogPost = {
   readTime: string;
   tags: string[];
   paragraphs: string[];
+  images?: Array<{
+    afterParagraph: number;
+    src: string;
+    alt: string;
+    caption: string;
+  }>;
   takeaways: string[];
   sources?: string[];
 };
@@ -340,6 +350,59 @@ type FieldNotePost = {
 };
 
 const BLOG_POSTS: BlogPost[] = [
+  {
+    slug: 'ai-work-redesign-after-generative-ai',
+    title: 'AI 도입은 왜 교육보다 ‘일의 재설계’가 먼저인가: 2024년 이후 논문들이 말하는 조직 변화의 조건',
+    description: '2024년 이후 OpenAlex에서 확인한 AI·HRD·조직학습 관련 논문들은 공통적으로 말한다. AI 도입의 핵심은 도구 사용법 교육이 아니라, 업무 맥락과 역할, 심리적 안전감, 리더십, 거버넌스를 함께 재설계하는 일이다.',
+    category: 'AI HRD',
+    date: '2026-06-05',
+    readTime: '8분',
+    tags: ['AI HRD', '생성형 AI', '직무재설계', '조직학습', '심리적 안전감', 'AI 리터러시', '리더십', '변화관리'],
+    paragraphs: [
+      '생성형 AI 교육을 요청하는 조직에서 가장 자주 나오는 질문은 “우리 직원들이 어떤 도구를 배워야 할까요?”이다. 하지만 2024년 이후 발표된 AI·HRD·조직학습 연구들을 보면, 더 중요한 질문은 따로 있다. “우리 조직은 AI가 들어온 뒤 일을 어떻게 다시 설계할 것인가?”라는 질문이다.',
+      'OpenAlex API로 2024년 이후 발표된 AI와 HRD, 조직학습, 직무 변화 관련 논문을 살펴보면 흐름은 꽤 선명하다. AI는 단순히 업무 속도를 높이는 도구가 아니다. 채용, 성과관리, 코칭, 리더십, 학습, 심리적 안전감, 조직 정의감까지 건드리는 변화 요인이다. 그래서 AI 도입을 교육 프로그램 하나로 처리하면 현장에서는 금방 한계가 드러난다. 사람들은 사용법은 배우지만, 언제 써야 하는지, 어떤 결과를 믿어야 하는지, 내 역할이 어떻게 달라지는지는 여전히 모른다.',
+      'Frontiers in Psychology에 발표된 2024년 스코핑 리뷰는 AI가 HR 활동에 미치는 영향을 다섯 가지로 정리한다. 업무 자동화, HR 데이터 활용 최적화, 인간 역량의 증강, 업무 맥락의 재설계, 그리고 일의 사회적·관계적 측면의 변화다. 여기서 중요한 표현은 “업무 맥락의 재설계”다. AI가 들어오면 HR은 단순히 기존 업무를 빠르게 처리하는 것이 아니라, 누가 판단하고, 누가 검토하며, 어떤 기준으로 공정성을 확인할지 다시 정해야 한다.',
+      '이 관점에서 AI HRD 교육은 프롬프트 작성법만 가르치는 방식으로는 부족하다. 구성원은 AI에게 지시하는 법뿐 아니라, AI가 만든 결과를 검토하는 법, 자신의 직무에서 자동화 가능한 일과 사람이 책임져야 할 일을 구분하는 법, 그리고 AI 활용 과정에서 발생하는 편향과 오류를 조직적으로 다루는 법을 배워야 한다.',
+      '제조·린 조직을 대상으로 한 2024년 연구도 비슷한 시사점을 준다. 연구는 AI가 직원 몰입에 어떤 영향을 미치는지 살펴보며, AI 도입이 현장의 참여와 태도에 직접 영향을 줄 수 있음을 보여준다. 린 조직에서 성과는 프로세스만으로 나오지 않는다. 구성원이 개선 활동에 참여하고, 자신의 일이 더 나아지고 있다고 느낄 때 성과가 난다. AI도 마찬가지다. 구성원이 AI를 “내 일을 감시하거나 대체하는 시스템”으로 느끼면 몰입은 떨어진다. 반대로 “내 판단과 개선 활동을 돕는 도구”로 경험하면 AI는 참여를 높이는 촉매가 될 수 있다.',
+      'AI 코칭 관련 연구들은 HRD에 더 직접적인 질문을 던진다. 2024년 Human Resource Development International에 실린 연구는 전 세계 비즈니스 코치 436명을 대상으로 AI 코칭에 대한 태도와 위협 인식을 분석했다. AI는 시간과 비용 측면에서 새로운 가능성을 열지만, 동시에 전문직 종사자에게 위협감과 방어적 반응을 불러올 수 있다. 또 다른 2024년 논문은 디지털·AI 코칭의 윤리 이슈를 다루며, 코치 훈련과 슈퍼비전, 윤리 역량, 인간 코치와 AI의 통합적 접근 필요성을 강조한다.',
+      '이 연구들이 말하는 바는 분명하다. AI는 사람의 전문성을 단순 대체하는 방식으로 들어오면 저항을 만든다. 그러나 전문가의 판단과 관계 형성을 보완하는 방식으로 설계되면 새로운 역할을 만든다. HRD가 해야 할 일은 “AI 코치가 사람 코치를 대체할까?”를 묻는 것이 아니라, “AI가 들어온 코칭 환경에서 인간 코치는 어떤 고유한 가치를 더 선명하게 가져가야 하는가?”를 묻는 것이다.',
+      '2025년 한국 직장인을 대상으로 한 AI 도입과 심리적 안전감 연구는 더 날카로운 경고를 준다. 연구는 조직의 AI 도입이 심리적 안전감에 부정적 영향을 줄 수 있고, 이것이 직원 우울 수준과 연결될 수 있음을 분석했다. 동시에 윤리적 리더십이 이 관계를 조절하는 요인으로 제시된다. 즉 AI 도입은 기술 프로젝트가 아니라 리더십 프로젝트다. 구성원이 “실수해도 말할 수 있다”, “AI 결과에 의문을 제기해도 된다”, “내 역할 변화에 대해 이야기할 수 있다”고 느끼지 못하면 AI 도입은 생산성보다 불안을 먼저 키울 수 있다.',
+      '그래서 AI 시대의 리더십은 도구를 많이 쓰라고 독려하는 리더십이 아니다. 학습 지향적 리더십에 가까워져야 한다. 2024년 Human Resource Development Review의 통합 리뷰는 조직 내 학습을 촉진하는 리더십을 직접 행동과 간접 행동으로 나눈다. 직접 행동은 지원, 교육, 요구, 역할 모델링이다. 간접 행동은 학습 분위기 조성, 업무 조직 설계, 학습 자원 확보, 지식 공유 촉진이다. AI 도입에도 이 구조가 그대로 적용된다. 리더는 AI 사용을 지시하는 사람이 아니라, AI와 함께 배우는 환경을 설계하는 사람이어야 한다.',
+      '결국 2024년 이후 논문들이 함께 가리키는 결론은 하나다. AI 도입의 성공은 모델 성능보다 조직의 재설계 역량에 달려 있다. 어떤 일을 자동화할지, 어떤 판단은 사람이 맡을지, 어떤 결과는 검토해야 할지, 어떤 불안을 공개적으로 다룰지, 어떤 리더십 행동이 학습을 촉진할지를 함께 정해야 한다.',
+      '랩리워크 관점에서 AI HRD 교육은 세 단계로 설계될 필요가 있다. 첫째, AI 리터러시다. 구성원이 생성형 AI의 가능성과 한계를 이해하고, 결과물을 비판적으로 검토할 수 있어야 한다. 둘째, 직무 재설계다. 각자의 업무를 과업, 관계, 판단의 단위로 나누고 AI와 사람이 함께 일할 흐름을 다시 그려야 한다. 셋째, 조직 변화관리다. 심리적 안전감, 윤리 기준, 리더의 역할 모델링, 데이터 거버넌스를 함께 설계해야 한다.',
+      'AI를 잘 쓰는 조직은 도구를 많이 쓰는 조직이 아니다. AI가 들어온 뒤에도 구성원이 더 잘 배우고, 더 명확하게 판단하고, 더 안전하게 질문할 수 있는 조직이다. 기술은 일을 바꾸지만, 그 변화가 성과가 되게 만드는 것은 결국 조직의 학습 능력이다.'
+    ],
+    images: [
+      {
+        afterParagraph: 2,
+        src: 'https://images.pexels.com/photos/34774358/pexels-photo-34774358.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        alt: '노트북을 보며 함께 일하는 팀',
+        caption: 'AI 도입은 개인의 도구 활용보다 팀의 협업 방식 변화와 더 깊게 연결된다. 이미지: Pexels / Matheus Bertelli'
+      },
+      {
+        afterParagraph: 7,
+        src: 'https://images.pexels.com/photos/17737193/pexels-photo-17737193.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        alt: '사무실에서 노트북을 보며 논의하는 동료',
+        caption: 'AI가 들어온 업무 환경에서는 검토, 판단, 역할 분담을 함께 설계해야 한다. 이미지: Pexels / Walls.io'
+      }
+    ],
+    takeaways: [
+      '2024년 이후 연구들은 AI 도입을 업무 자동화보다 업무 맥락 재설계의 문제로 본다.',
+      'AI HRD 교육은 프롬프트 교육을 넘어 검토, 판단, 윤리, 역할 재정의를 포함해야 한다.',
+      'AI 도입은 심리적 안전감과 리더십의 영향을 크게 받는다.',
+      'HRD의 역할은 AI 사용법 전달자가 아니라, AI와 함께 일하는 방식을 설계하는 변화관리자다.'
+    ],
+    sources: [
+      'OpenAlex API. Search query: generative AI organizational learning workplace HRD. Filter: from_publication_date:2024-01-01. Retrieved 2026-06-05.',
+      'Budhwar P, Chowdhury S, Wood G, Aguinis H, Bamber GJ, Beltran JR, et al. The effects of artificial intelligence on human resource activities and the roles of the human resource triad: opportunities and challenges. Frontiers in Psychology. 2024. doi:10.3389/fpsyg.2024.1360401. OpenAlex cited by 54.',
+      'Tortorella GL, Powell D, Hines P, Vergara A, Tlapa D, Vassolo RS. How does artificial intelligence impact employees’ engagement in lean organisations? International Journal of Production Research. 2024. doi:10.1080/00207543.2024.2368698. OpenAlex cited by 58.',
+      'Transformative AI in human resource management: enhancing workforce planning with topic modeling. Cogent Business & Management. 2024. doi:10.1080/23311975.2024.2432550. OpenAlex cited by 53.',
+      'The coach bots are coming: exploring global coaches’ attitudes and responses to the threat of AI coaching. Human Resource Development International. 2024. doi:10.1080/13678868.2024.2375934. OpenAlex cited by 30.',
+      'Ethics in digital and AI coaching. Human Resource Development International. 2024. doi:10.1080/13678868.2024.2315928. OpenAlex cited by 22.',
+      'Learning-Oriented Leadership in Organizations: An Integrative Review of Qualitative Studies. Human Resource Development Review. 2024. doi:10.1177/15344843241239723. OpenAlex cited by 24.',
+      'The dark side of artificial intelligence adoption: linking artificial intelligence adoption to employee depression via psychological safety and ethical leadership. Humanities and Social Sciences Communications. 2025. doi:10.1057/s41599-025-05040-2. OpenAlex cited by 13.'
+    ]
+  },
   {
     slug: 'organizational-culture-change-covid-genai',
     title: '조직문화의 변화: 코로나19와 생성AI 이후, 일하는 방식은 어떻게 다시 설계되는가',
@@ -975,9 +1038,21 @@ function BlogPostPage({ path }: { path: string }) {
           </div>
 
           <div className="mt-12 space-y-7 text-lg text-gray-700 leading-8">
-            {post.paragraphs.map(paragraph => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
+            {post.paragraphs.map((paragraph, index) => {
+              const image = post.images?.find(item => item.afterParagraph === index + 1);
+
+              return (
+                <React.Fragment key={paragraph}>
+                  <p>{paragraph}</p>
+                  {image && (
+                    <figure className="overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm">
+                      <img src={image.src} alt={image.alt} className="aspect-[16/9] w-full object-cover" />
+                      <figcaption className="px-5 py-4 text-sm text-gray-500">{image.caption}</figcaption>
+                    </figure>
+                  )}
+                </React.Fragment>
+              );
+            })}
           </div>
 
           <section className="mt-14 rounded-3xl bg-gray-900 text-white p-8">

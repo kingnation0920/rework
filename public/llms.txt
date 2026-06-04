@@ -41,6 +41,10 @@ Primary audience: Korean companies, HRD teams, leaders, organizational developme
 
 ## Blog Articles
 
+- AI 도입은 왜 교육보다 ‘일의 재설계’가 먼저인가: 2024년 이후 논문들이 말하는 조직 변화의 조건
+  https://www.labrework.com/blog/ai-work-redesign-after-generative-ai
+  Summary: Evidence-based Korean article using OpenAlex papers published since 2024 to explain why AI adoption requires work redesign, HRD change management, psychological safety, learning-oriented leadership, AI literacy, and governance beyond tool training.
+
 - 조직문화의 변화: 코로나19와 생성AI 이후, 일하는 방식은 어떻게 다시 설계되는가
   https://www.labrework.com/blog/organizational-culture-change-covid-genai
   Summary: Evidence-based Korean article on organizational culture change after COVID-19 and generative AI. Uses PubMed-indexed papers published since 2012 with Europe PMC citation counts of at least 50, weighted toward recent research on remote work, resilience, burnout, AI implementation, governance, and HRD.
