@@ -334,7 +334,15 @@ const fieldNotePosts = [
         heading: '좋은 교육은 스스로 질문하게 만드는 일입니다',
         paragraphs: [
           'AX 시대의 기획자는 기술자만도, 문서 작성자만도 아닙니다. 데이터를 읽고, 사람의 문제를 이해하고, AI를 협업 도구로 활용하며, 실행 가능한 제안을 만드는 사람입니다.',
-          '참고 논문 및 자료: OECD(2024) Do Adults Have the Skills They Need to Thrive in a Changing World? doi:10.1787/b263dc5d-en; BMC Psychology(2025) Mediating effect of AI attitudes and AI literacy on the relationship between career self-efficacy and job-seeking anxiety. doi:10.1186/s40359-025-02757-2; Cogent Education(2024) Guiding principles of generative AI for employability and learning in UK universities. doi:10.1080/2331186x.2024.2357898.'
+          '랩리워크는 이번 교육을 통해 참여자들이 AI와 데이터를 두려워해야 할 변화가 아니라, 자신의 가능성을 넓히는 도구로 경험할 수 있도록 함께하고 있습니다.'
+        ]
+      },
+      {
+        heading: '참고 논문 및 자료',
+        paragraphs: [
+          '1. OECD. (2024). Do Adults Have the Skills They Need to Thrive in a Changing World? doi:10.1787/b263dc5d-en',
+          '2. BMC Psychology. (2025). Mediating effect of AI attitudes and AI literacy on the relationship between career self-efficacy and job-seeking anxiety. doi:10.1186/s40359-025-02757-2',
+          '3. Cogent Education. (2024). Guiding principles of generative AI for employability and learning in UK universities. doi:10.1080/2331186x.2024.2357898'
         ]
       }
     ]
