@@ -277,6 +277,69 @@ const fieldNoteCategories = [
 
 const fieldNotePosts = [
   {
+    path: '/field-notes/dongbu-women-ax-data-planner-course',
+    title: 'AX 시대의 기획자는 데이터를 읽고, AI와 함께 설계하는 사람입니다',
+    description: '2026년 서울특별시동부여성발전센터에서 진행되는 AX융합 데이터 기반 기획자 교육 현장을 기록합니다. AI 리터러시, 파이썬 데이터 분석, 데이터 기반 기획과 취업 포트폴리오 역량을 다룹니다.',
+    category: '강의 현장',
+    datePublished: '2026-06-05',
+    dateModified: '2026-06-05',
+    location: '서울특별시동부여성발전센터 D스튜디오',
+    author: '김기현',
+    keywords: ['AX융합', '데이터 기반 기획', 'AI 리터러시', '파이썬 데이터 분석', '여성 취업교육', '포트폴리오', '강의 현장'],
+    sections: [
+      {
+        heading: '데이터와 AI를 함께 다루는 기획자 교육입니다',
+        paragraphs: [
+          '2026년 3월 27일부터 7월 16일까지, 서울특별시동부여성발전센터 D스튜디오에서 「AX융합 데이터 기반 기획자」 교육이 진행되고 있습니다. 이번 과정은 데이터역량 교육 이수 후 취업을 희망하는 여성을 대상으로 하며, 교육비 전액 무료, 고사양 노트북과 교재·교구 지원까지 포함된 실무형 교육입니다.',
+          '이번 교육의 핵심은 단순히 AI 도구 하나를 배우는 데 있지 않습니다. 데이터로 문제를 읽고, AI와 함께 분석하고, 기획서와 보고서로 설득하며, 마지막에는 포트폴리오로 자신의 역량을 증명하는 데 있습니다.'
+        ],
+        image: {
+          src: '/field-notes/dongbu-ax-data-planner-01.jpg',
+          alt: '강사가 엑셀 데이터 화면을 보며 데이터 분석 내용을 설명하는 모습',
+          caption: '1'
+        }
+      },
+      {
+        heading: 'AI 리터러시는 취업 자신감과도 연결됩니다',
+        paragraphs: [
+          'OpenAlex API로 확인한 2024년 이후 연구들도 이 교육의 방향과 맞닿아 있습니다. OECD의 성인역량 조사 보고서(2024)는 성인의 문해력, 수리력, 적응적 문제해결력이 고용, 임금, 지속학습의 기반이 된다고 설명합니다.',
+          '2025년 BMC Psychology에 실린 연구는 AI 태도와 AI 리터러시가 진로 자기효능감과 구직 불안 사이에서 중요한 매개 역할을 한다고 분석했습니다.'
+        ],
+        image: {
+          src: '/field-notes/dongbu-ax-data-planner-02.jpg',
+          alt: '강사가 생성형 AI와 지식 학습에 대해 설명하고 참여자들이 듣는 강의 현장',
+          caption: '2'
+        }
+      },
+      {
+        heading: '기획 역량은 분석, 설계, 표현이 연결될 때 완성됩니다',
+        paragraphs: [
+          '파이썬 데이터 분석과 데이터 기반 예측은 단순한 기술 훈련이 아닙니다. 실무자는 데이터를 통해 문제를 발견하고, 패턴을 해석하고, 의사결정을 제안할 수 있어야 합니다.',
+          '생성형 AI와 고용가능성에 관한 2024년 연구도 교육 현장에서 생성형 AI를 윤리적 기준과 학습 목적 안에서 활용하도록 돕는 것이 필요하다는 시사점을 줍니다.'
+        ],
+        image: {
+          src: '/field-notes/dongbu-ax-data-planner-03.jpg',
+          alt: '서울특별시동부여성발전센터 D스튜디오에서 진행 중인 AX융합 데이터 기반 기획자 교육 현장',
+          caption: '3'
+        }
+      },
+      {
+        heading: '포트폴리오로 실무 가능성을 증명합니다',
+        paragraphs: [
+          '이번 교육의 방향은 AI를 잘 쓰는 사람에서 멈추지 않습니다. AI와 데이터로 더 좋은 기획을 할 수 있는 사람을 목표로 합니다.',
+          '취업을 준비하는 과정에서 가장 강력한 증거는 무엇을 배웠는가보다 무엇을 만들어냈는가입니다. 참여자들은 교육 과정에서 배운 AI, 데이터 분석, 기획, 발표 역량을 하나의 결과물로 정리하며 자신의 실무 가능성을 보여주게 됩니다.'
+        ]
+      },
+      {
+        heading: '좋은 교육은 스스로 질문하게 만드는 일입니다',
+        paragraphs: [
+          'AX 시대의 기획자는 기술자만도, 문서 작성자만도 아닙니다. 데이터를 읽고, 사람의 문제를 이해하고, AI를 협업 도구로 활용하며, 실행 가능한 제안을 만드는 사람입니다.',
+          '참고 논문 및 자료: OECD(2024) Do Adults Have the Skills They Need to Thrive in a Changing World? doi:10.1787/b263dc5d-en; BMC Psychology(2025) Mediating effect of AI attitudes and AI literacy on the relationship between career self-efficacy and job-seeking anxiety. doi:10.1186/s40359-025-02757-2; Cogent Education(2024) Guiding principles of generative AI for employability and learning in UK universities. doi:10.1080/2331186x.2024.2357898.'
+        ]
+      }
+    ]
+  },
+  {
     path: '/field-notes/kpc-ai-job-redesign-agent-course',
     title: 'AI 시대의 직무재설계와 AI 에이전트 활용 과정에 랩리워크가 함께합니다',
     description: '한국생산성본부의 「AI 시대의 직무재설계와 AI 에이전트 활용」 과정은 AI에 맡길 일과 사람이 집중해야 할 핵심 가치를 구분하고, 실무형 AI 에이전트를 직접 기획하는 교육입니다.',
@@ -353,6 +416,10 @@ function stripTags(value) {
 
 function jsonScript(data) {
   return `<script type="application/ld+json">${JSON.stringify(data).replaceAll('</', '<\\/')}</script>`;
+}
+
+function absoluteUrl(url) {
+  return String(url).startsWith('http') ? url : `${site.url}${url}`;
 }
 
 function injectMeta(html, route, schemaScripts, bodyHtml) {
@@ -463,6 +530,15 @@ function fieldNotePostBody(post) {
       ${section.paragraphs.map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join('\n')}
       ${section.image ? `<figure><img src="${section.image.src}" alt="${escapeHtml(section.image.alt)}" style="max-width:100%;height:auto;border-radius:20px" /><figcaption>${escapeHtml(section.image.caption)}</figcaption></figure>` : ''}
     </section>`).join('\n');
+  const linkBlock = post.link ? `
+      <section>
+        <h2>과정 신청 및 상세 안내</h2>
+        <p>교육 일정, 장소, 신청 방법은 과정 상세 페이지에서 확인하실 수 있습니다.</p>
+        <p><a href="${post.link.href}">${escapeHtml(post.link.label)}</a></p>
+      </section>` : '';
+  const posterBlock = post.poster
+    ? `<figure><img src="${post.poster.src}" alt="${escapeHtml(post.poster.alt)}" style="max-width:100%;height:auto;border-radius:20px" /><figcaption>${escapeHtml(post.poster.caption)}</figcaption></figure>`
+    : '';
 
   return layout(`
     <article>
@@ -470,12 +546,8 @@ function fieldNotePostBody(post) {
       <h1>${escapeHtml(post.title)}</h1>
       <p><strong>${escapeHtml(post.description)}</strong></p>
       ${sections}
-      <section>
-        <h2>과정 신청 및 상세 안내</h2>
-        <p>교육 일정, 장소, 신청 방법은 한국생산성본부 과정 상세 페이지에서 확인하실 수 있습니다.</p>
-        <p><a href="${post.link.href}">${escapeHtml(post.link.label)}</a></p>
-      </section>
-      <figure><img src="${post.poster.src}" alt="${escapeHtml(post.poster.alt)}" style="max-width:100%;height:auto;border-radius:20px" /><figcaption>${escapeHtml(post.poster.caption)}</figcaption></figure>
+      ${linkBlock}
+      ${posterBlock}
     </article>`);
 }
 
@@ -544,6 +616,11 @@ function fieldNotesSchema() {
 
 function fieldNotePostSchema(post) {
   const canonical = `${site.url}${post.path}`;
+  const images = [
+    ...(post.poster ? [post.poster.src] : []),
+    ...post.sections.flatMap(section => section.image ? [section.image.src] : [])
+  ].map(absoluteUrl);
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -556,7 +633,7 @@ function fieldNotePostSchema(post) {
     url: canonical,
     articleSection: post.category,
     keywords: post.keywords,
-    image: [post.poster.src, ...post.sections.flatMap(section => section.image ? [section.image.src] : [])],
+    image: images,
     author: {
       '@type': 'Person',
       name: post.author

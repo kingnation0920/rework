@@ -38,9 +38,15 @@
   </url>
   <url>
     <loc>https://www.labrework.com/field-notes</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.labrework.com/field-notes/dongbu-women-ax-data-planner-course</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.labrework.com/field-notes/kpc-ai-job-redesign-agent-course</loc>

@@ -284,6 +284,10 @@ const ROUTE_META: Record<string, { title: string; description: string }> = {
     title: 'AI 시대의 직무재설계와 AI 에이전트 활용 과정 안내 | 랩리워크',
     description: '한국생산성본부 AI 시대의 직무재설계와 AI 에이전트 활용 과정에 랩리워크가 함께합니다. AI와 함께 일하는 방식을 재설계하는 실무형 교육입니다.'
   },
+  '/field-notes/dongbu-women-ax-data-planner-course': {
+    title: 'AX융합 데이터 기반 기획자 교육 현장 | 랩리워크',
+    description: '2026년 서울특별시동부여성발전센터 AX융합 데이터 기반 기획자 교육 현장을 기록합니다. AI 리터러시, 파이썬 데이터 분석, 데이터 기반 기획과 취업 포트폴리오 역량을 다룹니다.'
+  },
   '/blog/ai-hrd-training': {
     title: 'AI 시대의 HRD 교육, 무엇이 달라져야 할까 | 랩리워크 블로그',
     description: '생성형 AI 확산 이후 HRD 교육이 단순한 도구 교육을 넘어 업무 재설계와 조직문화 변화관리로 확장되어야 하는 이유를 정리합니다.'
@@ -338,11 +342,11 @@ type FieldNotePost = {
       caption: string;
     };
   }>;
-  link: {
+  link?: {
     label: string;
     href: string;
   };
-  poster: {
+  poster?: {
     src: string;
     alt: string;
     caption: string;
@@ -514,6 +518,68 @@ const FIELD_NOTE_CATEGORIES = [
 ];
 
 const FIELD_NOTE_POSTS: FieldNotePost[] = [
+  {
+    slug: 'dongbu-women-ax-data-planner-course',
+    title: 'AX 시대의 기획자는 데이터를 읽고, AI와 함께 설계하는 사람입니다',
+    description: '2026년 서울특별시동부여성발전센터에서 진행되는 「AX융합 데이터 기반 기획자」 과정은 AI 리터러시, 데이터 분석, 디자인씽킹, 보고서 작성, 발표와 포트폴리오 실습을 연결해 취업을 준비하는 여성들의 실무 역량을 키우는 교육입니다.',
+    category: '강의 현장',
+    date: '2026-06-05',
+    location: '서울특별시동부여성발전센터 D스튜디오',
+    tags: ['AX융합', '데이터 기반 기획', 'AI 리터러시', '파이썬 데이터 분석', '여성 취업교육', '포트폴리오', '강의 현장'],
+    sections: [
+      {
+        heading: '데이터와 AI를 함께 다루는 기획자 교육입니다',
+        paragraphs: [
+          '2026년 3월 27일부터 7월 16일까지, 서울특별시동부여성발전센터 D스튜디오에서 「AX융합 데이터 기반 기획자」 교육이 진행되고 있습니다. 이번 과정은 데이터역량 교육 이수 후 취업을 희망하는 여성을 대상으로 하며, 교육비 전액 무료, 고사양 노트북과 교재·교구 지원까지 포함된 실무형 교육입니다.',
+          '이번 교육의 핵심은 단순히 AI 도구 하나를 배우는 데 있지 않습니다. 데이터로 문제를 읽고, AI와 함께 분석하고, 기획서와 보고서로 설득하며, 마지막에는 포트폴리오로 자신의 역량을 증명하는 데 있습니다.'
+        ],
+        image: {
+          src: '/field-notes/dongbu-ax-data-planner-01.jpg',
+          alt: '강사가 엑셀 데이터 화면을 보며 데이터 분석 내용을 설명하는 모습',
+          caption: '1'
+        }
+      },
+      {
+        heading: 'AI 리터러시는 취업 자신감과도 연결됩니다',
+        paragraphs: [
+          '최근 OpenAlex API로 확인한 2024년 이후 연구들도 이 교육의 방향과 맞닿아 있습니다. OECD의 성인역량 조사 보고서(2024)는 성인의 문해력, 수리력, 적응적 문제해결력이 고용, 임금, 지속학습의 기반이 된다고 설명합니다. AI 시대라고 해서 기본 역량이 덜 중요해지는 것이 아닙니다. 오히려 데이터를 읽고, 문제를 구조화하고, 새로운 도구를 학습하는 능력이 더 중요해지고 있습니다.',
+          '2025년 BMC Psychology에 실린 연구는 AI 태도와 AI 리터러시가 진로 자기효능감과 구직 불안 사이에서 중요한 매개 역할을 한다고 분석했습니다. AI를 막연한 위협으로 느끼는 사람과, AI를 자신의 역량을 확장하는 도구로 이해하는 사람은 구직 과정에서 느끼는 불안과 자신감이 달라질 수 있습니다.'
+        ],
+        image: {
+          src: '/field-notes/dongbu-ax-data-planner-02.jpg',
+          alt: '강사가 생성형 AI와 지식 학습에 대해 설명하고 참여자들이 듣는 강의 현장',
+          caption: '2'
+        }
+      },
+      {
+        heading: '기획 역량은 분석, 설계, 표현이 연결될 때 완성됩니다',
+        paragraphs: [
+          '이 과정에서 다루는 파이썬 데이터 분석과 데이터 기반 예측은 단순한 기술 훈련이 아닙니다. 실무자는 데이터를 통해 문제를 발견하고, 패턴을 해석하고, 의사결정을 제안할 수 있어야 합니다. 기획자는 감각만으로 설득하지 않습니다. 데이터를 근거로 가설을 만들고, AI와 함께 아이디어를 확장하며, 이해관계자가 납득할 수 있는 언어로 결과를 정리해야 합니다.',
+          '생성형 AI와 고용가능성에 관한 2024년 연구도 비슷한 시사점을 줍니다. 교육 현장에서 생성형 AI를 무조건 금지하기보다, 윤리적 기준과 학습 목적 안에서 활용하도록 돕는 것이 필요하다는 논의가 확산되고 있습니다. 실제 업무 환경에서는 AI를 피하는 능력보다 AI를 비판적으로 활용하는 능력이 더 중요해지고 있기 때문입니다.'
+        ],
+        image: {
+          src: '/field-notes/dongbu-ax-data-planner-03.jpg',
+          alt: '서울특별시동부여성발전센터 D스튜디오에서 진행 중인 AX융합 데이터 기반 기획자 교육 현장',
+          caption: '3'
+        }
+      },
+      {
+        heading: '포트폴리오로 실무 가능성을 증명합니다',
+        paragraphs: [
+          '이번 교육의 방향은 “AI를 잘 쓰는 사람”에서 멈추지 않습니다. “AI와 데이터로 더 좋은 기획을 할 수 있는 사람”을 목표로 합니다. 디자인씽킹은 사용자의 문제를 발견하게 하고, 데이터 분석은 그 문제를 근거 있게 설명하게 하며, 보고서와 프레젠테이션은 해결안을 설득 가능한 형태로 바꾸게 합니다. 이 연결이 바로 AX 시대의 기획 역량입니다.',
+          '마지막 단계인 포트폴리오 실무역량 및 분석 발표는 특히 중요합니다. 취업을 준비하는 과정에서 가장 강력한 증거는 “무엇을 배웠는가”보다 “무엇을 만들어냈는가”입니다. 참여자들은 교육 과정에서 배운 AI, 데이터 분석, 기획, 발표 역량을 하나의 결과물로 정리하며 자신의 실무 가능성을 보여주게 됩니다.'
+        ]
+      },
+      {
+        heading: '좋은 교육은 스스로 질문하게 만드는 일입니다',
+        paragraphs: [
+          'AX 시대의 기획자는 기술자만도, 문서 작성자만도 아닙니다. 데이터를 읽고, 사람의 문제를 이해하고, AI를 협업 도구로 활용하며, 실행 가능한 제안을 만드는 사람입니다. 「AX융합 데이터 기반 기획자」 과정은 그 역량을 실제 교육 현장에서 하나씩 쌓아가는 과정입니다.',
+          '랩리워크는 이번 교육을 통해 참여자들이 AI와 데이터를 두려워해야 할 변화가 아니라, 자신의 가능성을 넓히는 도구로 경험할 수 있도록 함께하고 있습니다. 중요한 것은 도구의 이름이 아니라, 그 도구로 어떤 문제를 해결할 수 있는가입니다. 그리고 좋은 교육은 바로 그 질문을 스스로 던질 수 있게 만드는 일에서 시작됩니다.',
+          '참고 논문 및 자료: OECD(2024) Do Adults Have the Skills They Need to Thrive in a Changing World? doi:10.1787/b263dc5d-en; BMC Psychology(2025) Mediating effect of AI attitudes and AI literacy on the relationship between career self-efficacy and job-seeking anxiety. doi:10.1186/s40359-025-02757-2; Cogent Education(2024) Guiding principles of generative AI for employability and learning in UK universities. doi:10.1080/2331186x.2024.2357898.'
+        ]
+      }
+    ]
+  },
   {
     slug: 'kpc-ai-job-redesign-agent-course',
     title: 'AI 시대의 직무재설계와 AI 에이전트 활용 과정에 랩리워크가 함께합니다',
@@ -991,16 +1057,20 @@ function FieldNotePostPage({ path }: { path: string }) {
             <p className="mt-4 text-gray-600 leading-relaxed">
               교육 일정, 장소, 신청 방법은 한국생산성본부 과정 상세 페이지에서 확인하실 수 있습니다.
             </p>
-            <a href={post.link.href} target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-full font-bold hover:bg-blue-700 transition-colors">
-              {post.link.label}
-              <ArrowRight size={18} />
-            </a>
+            {post.link && (
+              <a href={post.link.href} target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-full font-bold hover:bg-blue-700 transition-colors">
+                {post.link.label}
+                <ArrowRight size={18} />
+              </a>
+            )}
           </div>
 
-          <figure className="mt-10 overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm">
-            <img src={post.poster.src} alt={post.poster.alt} className="w-full object-contain bg-green-50" />
-            <figcaption className="px-5 py-4 text-sm text-gray-500">{post.poster.caption}</figcaption>
-          </figure>
+          {post.poster && (
+            <figure className="mt-10 overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm">
+              <img src={post.poster.src} alt={post.poster.alt} className="w-full object-contain bg-green-50" />
+              <figcaption className="px-5 py-4 text-sm text-gray-500">{post.poster.caption}</figcaption>
+            </figure>
+          )}
         </div>
       </article>
     </PageShell>

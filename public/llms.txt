@@ -35,6 +35,10 @@ Primary audience: Korean companies, HRD teams, leaders, organizational developme
   https://www.labrework.com/field-notes
   Summary: Korean field notes board for lecture scenes, academic and paper presentations, corporate workshops, and education operation cases from Lab Re:work.
 
+- AX 시대의 기획자는 데이터를 읽고, AI와 함께 설계하는 사람입니다
+  https://www.labrework.com/field-notes/dongbu-women-ax-data-planner-course
+  Summary: Korean field note from the 2026 Seoul Dongbu Women's Development Center AX-converged data-based planner course. Covers AI literacy, Python data analysis, data-driven planning, design thinking, presentation, portfolio development, and employability with OpenAlex-based research references.
+
 - AI 시대의 직무재설계와 AI 에이전트 활용 과정에 랩리워크가 함께합니다
   https://www.labrework.com/field-notes/kpc-ai-job-redesign-agent-course
   Summary: Korean field note announcing Lab Re:work's participation in the Korea Productivity Center course "AI 시대의 직무재설계와 AI 에이전트 활용." Covers AI job redesign, AI agent planning, work redesign, and practical generative AI education.
