@@ -342,6 +342,7 @@ type FieldNotePost = {
       caption: string;
     };
   }>;
+  applicationGuide?: string;
   link?: {
     label: string;
     href: string;
@@ -526,6 +527,7 @@ const FIELD_NOTE_POSTS: FieldNotePost[] = [
     date: '2026-06-05',
     location: '서울특별시동부여성발전센터 D스튜디오',
     tags: ['AX융합', '데이터 기반 기획', 'AI 리터러시', '파이썬 데이터 분석', '여성 취업교육', '포트폴리오', '강의 현장'],
+    applicationGuide: '교육 일정, 장소, 신청 방법은 서울특별시동부여성발전센터 과정 상세 페이지에서 확인하실 수 있습니다.',
     sections: [
       {
         heading: '데이터와 AI를 함께 다루는 기획자 교육입니다',
@@ -1062,7 +1064,7 @@ function FieldNotePostPage({ path }: { path: string }) {
           <div className="mt-14 rounded-3xl border border-blue-100 bg-blue-50 p-8">
             <h2 className="text-2xl font-bold text-gray-900">과정 신청 및 상세 안내</h2>
             <p className="mt-4 text-gray-600 leading-relaxed">
-              교육 일정, 장소, 신청 방법은 한국생산성본부 과정 상세 페이지에서 확인하실 수 있습니다.
+              {post.applicationGuide || '교육 일정, 장소, 신청 방법은 한국생산성본부 과정 상세 페이지에서 확인하실 수 있습니다.'}
             </p>
             {post.link && (
               <a href={post.link.href} target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-full font-bold hover:bg-blue-700 transition-colors">

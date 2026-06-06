@@ -286,6 +286,7 @@ const fieldNotePosts = [
     location: '서울특별시동부여성발전센터 D스튜디오',
     author: '김기현',
     keywords: ['AX융합', '데이터 기반 기획', 'AI 리터러시', '파이썬 데이터 분석', '여성 취업교육', '포트폴리오', '강의 현장'],
+    applicationGuide: '교육 일정, 장소, 신청 방법은 서울특별시동부여성발전센터 과정 상세 페이지에서 확인하실 수 있습니다.',
     sections: [
       {
         heading: '데이터와 AI를 함께 다루는 기획자 교육입니다',
@@ -538,11 +539,12 @@ function fieldNotePostBody(post) {
       ${section.paragraphs.map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join('\n')}
       ${section.image ? `<figure><img src="${section.image.src}" alt="${escapeHtml(section.image.alt)}" style="max-width:100%;height:auto;border-radius:20px" /><figcaption>${escapeHtml(section.image.caption)}</figcaption></figure>` : ''}
     </section>`).join('\n');
-  const linkBlock = post.link ? `
+  const applicationGuide = post.applicationGuide || (post.link ? '교육 일정, 장소, 신청 방법은 한국생산성본부 과정 상세 페이지에서 확인하실 수 있습니다.' : '');
+  const linkBlock = applicationGuide ? `
       <section>
         <h2>과정 신청 및 상세 안내</h2>
-        <p>교육 일정, 장소, 신청 방법은 과정 상세 페이지에서 확인하실 수 있습니다.</p>
-        <p><a href="${post.link.href}">${escapeHtml(post.link.label)}</a></p>
+        <p>${escapeHtml(applicationGuide)}</p>
+        ${post.link ? `<p><a href="${post.link.href}">${escapeHtml(post.link.label)}</a></p>` : ''}
       </section>` : '';
   const posterBlock = post.poster
     ? `<figure><img src="${post.poster.src}" alt="${escapeHtml(post.poster.alt)}" style="max-width:100%;height:auto;border-radius:20px" /><figcaption>${escapeHtml(post.poster.caption)}</figcaption></figure>`
