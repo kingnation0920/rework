@@ -45,6 +45,10 @@ Primary audience: Korean companies, HRD teams, leaders, organizational developme
 
 ## Blog Articles
 
+- 단순한 툴 사용법을 넘어 일하는 흐름을 바꾸는 생성 AI 직원 교육 디자인
+  https://www.labrework.com/blog/generative-ai-employee-training-workflow-redesign
+  Summary: Korean article explaining why generative AI employee training should move beyond tool tutorials toward workflow redesign, job context analysis, task chaining, and small workplace experiments. Uses anonymous composite client cases and references recent AI automation and change management research.
+
 - AI 도입은 왜 교육보다 ‘일의 재설계’가 먼저인가: 2024년 이후 논문들이 말하는 조직 변화의 조건
   https://www.labrework.com/blog/ai-work-redesign-after-generative-ai
   Summary: Evidence-based Korean article using OpenAlex papers published since 2024 to explain why AI adoption requires work redesign, HRD change management, psychological safety, learning-oriented leadership, AI literacy, and governance beyond tool training.

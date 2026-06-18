@@ -32,7 +32,7 @@
   </url>
   <url>
     <loc>https://www.labrework.com/blog</loc>
-    <lastmod>2026-06-05</lastmod>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -75,6 +75,12 @@
   <url>
     <loc>https://www.labrework.com/blog/ai-work-redesign-after-generative-ai</loc>
     <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.labrework.com/blog/generative-ai-employee-training-workflow-redesign</loc>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
