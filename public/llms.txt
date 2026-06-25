@@ -45,7 +45,7 @@ Primary audience: Korean companies, HRD teams, leaders, organizational developme
 
 ## Blog Articles
 
-- HR 메가 트랜드 AI 시대의 워크 리디자인, 도구 도입을 넘어 일의 본질을 바꾸는 법
+- HR 메가 트렌드 AI 시대의 워크 리디자인, 도구 도입을 넘어 일의 본질을 바꾸는 법
   https://www.labrework.com/blog/hr-mega-trend-ai-work-redesign
   Summary: Korean article on HR mega trends and AI-era work redesign. Explains why organizations must decompose and recombine work processes, redesign roles around human judgment and AI automation, and build data-producing workflows rather than merely adopting tools.
 
