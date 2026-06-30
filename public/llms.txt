@@ -45,6 +45,10 @@ Primary audience: Korean companies, HRD teams, leaders, organizational developme
 
 ## Blog Articles
 
+- AI 시대의 새로운 인재 평가 기준을 어떻게 설계할까?
+  https://www.labrework.com/blog/ai-era-talent-evaluation-criteria
+  Summary: Korean article on redesigning talent and performance evaluation in the generative AI era. Explains why output volume is no longer enough, and why AI literacy, critical verification, prompt quality, feedback loops, and work redesign processes should become new evaluation criteria.
+
 - HR 메가 트렌드 AI 시대의 워크 리디자인, 도구 도입을 넘어 일의 본질을 바꾸는 법
   https://www.labrework.com/blog/hr-mega-trend-ai-work-redesign
   Summary: Korean article on HR mega trends and AI-era work redesign. Explains why organizations must decompose and recombine work processes, redesign roles around human judgment and AI automation, and build data-producing workflows rather than merely adopting tools.
